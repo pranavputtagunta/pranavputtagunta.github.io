@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranav Puttagunta - Resume</title>
+    <title>Pranav Puttagunta - Education</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
@@ -29,29 +29,27 @@
                 <a href="index.html" class="text-text hover:text-secondary transition-colors">Home</a>
                 <a href="projects.html" class="text-text hover:text-secondary transition-colors">Projects</a>
                 <a href="experiences.html" class="text-text hover:text-secondary transition-colors">Experiences</a>
-                <a href="education.html" class="text-text hover:text-secondary transition-colors">Education</a>
-                <a href="resume.html" class="text-secondary transition-colors">Resume</a>
+                <a href="education.html" class="text-secondary transition-colors">Education</a>
+                <a href="resume.html" class="text-text hover:text-secondary transition-colors">Resume</a>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 pt-24">
-        <div class="max-w-5xl mx-auto">
-            <div class="bg-white/5 rounded-lg p-6 mb-6 flex justify-between items-center">
-                <h2 class="text-3xl font-bold text-heading">Resume</h2>
-                <a href="assets/docs/pranav_tech_resume.pdf" target="_blank" class="px-4 py-2 bg-secondary/20 text-secondary rounded hover:bg-secondary/30 transition-colors">
-                    <i class="fas fa-download mr-2"></i>Download PDF
-                </a>
-            </div>
-            <div class="bg-white/5 rounded-lg overflow-hidden" style="height: 800px;">
-                <embed
-                    src="assets/docs/pranav_tech_resume.pdf"
-                    type="application/pdf"
-                    width="100%"
-                    height="100%"
-                    class="w-full h-full"
-                >
+        <div class="bg-white/5 rounded-lg p-8 mb-8">
+            <h2 class="text-3xl font-bold text-heading mb-6">University of California San Diego</h2>
+            <p class="text-xl mb-8">Bachelor of Science in Computer Science</p>
+            
+            <h3 class="text-2xl font-bold text-heading mb-4">Coursework</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Course Card Template -->
+                <div class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
+                    <h4 class="font-bold text-heading mb-1">CSE 11</h4>
+                    <p class="mb-2">Introduction to Programming and Computational Problem-Solving: Accelerated Pace</p>
+                    <a href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2011.%20Introduction%20to%20Programming%20and%20Computational%20Problem%2DSolving%3A%20Accelerated%20Pace%20(4)" class="text-secondary hover:underline text-sm">Course Details →</a>
+                </div>
+                <!-- Add more course cards -->
             </div>
         </div>
     </main>
