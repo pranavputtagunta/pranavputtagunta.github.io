@@ -20,17 +20,25 @@
             }
         }
     </script>
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
 </head>
 <body class="bg-primary text-text">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-primary/90 backdrop-blur-sm z-50 border-b border-secondary/20">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-center space-x-8">
-                <a href="index.html" class="text-secondary transition-colors">Home</a>
-                <a href="projects.html" class="text-text hover:text-secondary transition-colors">Projects</a>
-                <a href="experiences.html" class="text-text hover:text-secondary transition-colors">Experiences</a>
-                <a href="education.html" class="text-text hover:text-secondary transition-colors">Education</a>
-                <a href="resume.html" class="text-text hover:text-secondary transition-colors">Resume</a>
+                <button onclick="showTab('home')" class="text-text hover:text-secondary transition-colors">Home</button>
+                <button onclick="showTab('projects')" class="text-text hover:text-secondary transition-colors">Projects</button>
+                <button onclick="showTab('experiences')" class="text-text hover:text-secondary transition-colors">Experiences</button>
+                <button onclick="showTab('education')" class="text-text hover:text-secondary transition-colors">Education</button>
+                <button onclick="showTab('resume')" class="text-text hover:text-secondary transition-colors">Resume</button>
             </div>
         </div>
     </nav>
