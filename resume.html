@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranav Puttagunta - Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a192f',
+                        secondary: '#64ffda',
+                        text: '#8892b0',
+                        heading: '#ccd6f6'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-primary text-text">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-primary/90 backdrop-blur-sm z-50 border-b border-secondary/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-center space-x-8">
+                <a href="index.html" class="text-text hover:text-secondary transition-colors">Home</a>
+                <a href="projects.html" class="text-text hover:text-secondary transition-colors">Projects</a>
+                <a href="experiences.html" class="text-text hover:text-secondary transition-colors">Experiences</a>
+                <a href="education.html" class="text-text hover:text-secondary transition-colors">Education</a>
+                <a href="resume.html" class="text-secondary transition-colors">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 pt-24">
+        <div class="max-w-5xl mx-auto">
+            <div class="bg-white/5 rounded-lg p-6 mb-6 flex justify-between items-center">
+                <h2 class="text-3xl font-bold text-heading">Resume</h2>
+                <a href="assets/docs/resume.pdf" target="_blank" class="px-4 py-2 bg-secondary/20 text-secondary rounded hover:bg-secondary/30 transition-colors">
+                    <i class="fas fa-download mr-2"></i>Download PDF
+                </a>
+            </div>
+            <div class="bg-white/5 rounded-lg overflow-hidden" style="height: 800px;">
+                <embed
+                    src="assets/docs/resume.pdf"
+                    type="application/pdf"
+                    width="100%"
+                    height="100%"
+                    class="w-full h-full"
+                >
+            </div>
+        </div>
+    </main>
+</body>
+</html>
