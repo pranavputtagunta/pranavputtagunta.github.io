@@ -1,7 +1,7 @@
 <nav class="nav-container">
     <div class="nav-content">
         <div class="nav-brand">
-            <a href="/">PP</a>
+            <a href="/">Pranav Puttagunta</a>
         </div>
         <div class="nav-links">
             <a href="/">Profile</a>

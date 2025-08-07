@@ -28,6 +28,18 @@
     align-items: center;
 }
 
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+.nav-brand a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    text-decoration: none;
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
@@ -52,12 +64,43 @@ body {
     line-height: 1.6;
 }
 
-/* Project Cards */
-.project-grid {
+/* Project and Education Cards */
+.project-grid,
+.course-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin: 2rem 0;
+}
+
+.education-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-left: 3px solid var(--secondary-color);
+}
+
+.course-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.education-card h3 {
+    margin-top: 0;
+    color: var(--heading-color);
+}
+
+.education-meta {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
 }
 
 .project-card {
