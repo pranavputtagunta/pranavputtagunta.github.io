@@ -7,6 +7,7 @@
             <a href="/" class="active">Profile</a>
             <a href="/projects">Projects</a>
             <a href="/experience">Experience</a>
+            <a href="https://github.com/pranavputtagunta" target="_blank">GitHub ↗</a>
         </div>
     </div>
 </nav>

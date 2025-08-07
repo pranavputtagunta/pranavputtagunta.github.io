@@ -62,6 +62,7 @@ body {
     color: var(--text-color);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
+    padding-top: 5rem; /* Add padding for fixed navigation */
 }
 
 /* Project and Education Cards */
