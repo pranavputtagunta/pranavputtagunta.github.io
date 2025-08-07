@@ -22,10 +22,10 @@
     </script>
     <style>
         .tab-content {
-            display: none;
+            display: none !important;
         }
         .tab-content.active {
-            display: block;
+            display: block !important;
         }
     </style>
 </head>
@@ -170,8 +170,15 @@
             history.pushState({}, '', `#${tabId}`);
         }
 
+        // Immediately hide all tabs except home when script loads
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        const initialHash = window.location.hash.slice(1) || 'home';
+        document.getElementById(initialHash).classList.add('active');
+
         // Handle initial load and back/forward navigation
-        window.addEventListener('load', () => {
+        window.addEventListener('DOMContentLoaded', () => {
             const hash = window.location.hash.slice(1) || 'home';
             showTab(hash);
         });
