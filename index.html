@@ -27,18 +27,60 @@
         .tab-content.active {
             display: block !important;
         }
+        
+        /* Responsive text adjustments */
+        @media (max-width: 640px) {
+            .text-5xl {
+                font-size: 2.5rem;
+            }
+            .text-3xl {
+                font-size: 1.875rem;
+            }
+            .text-xl {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Improved mobile spacing */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .space-y-8 > * + * {
+                margin-top: 2rem;
+            }
+        }
+
+        /* Smooth transitions for mobile menu */
+        #nav-links {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Prevent horizontal scroll on mobile */
+        body {
+            overflow-x: hidden;
+        }
     </style>
 </head>
 <body class="bg-primary text-text">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-primary/90 backdrop-blur-sm z-50 border-b border-secondary/20">
         <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-center space-x-8">
-                <button onclick="showTab('home')" class="text-text hover:text-secondary transition-colors">Home</button>
-                <button onclick="showTab('projects')" class="text-text hover:text-secondary transition-colors">Projects</button>
-                <button onclick="showTab('experiences')" class="text-text hover:text-secondary transition-colors">Experiences</button>
-                <button onclick="showTab('education')" class="text-text hover:text-secondary transition-colors">Education</button>
-                <button onclick="showTab('resume')" class="text-text hover:text-secondary transition-colors">Resume</button>
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex justify-end mb-2">
+                <button onclick="toggleMobileMenu()" class="text-text hover:text-secondary transition-colors">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Navigation links -->
+            <div id="nav-links" class="md:flex md:justify-center md:space-x-8 hidden flex-col md:flex-row space-y-2 md:space-y-0">
+                <button onclick="showTab('home')" class="text-text hover:text-secondary transition-colors text-center py-2 md:py-0">Home</button>
+                <button onclick="showTab('projects')" class="text-text hover:text-secondary transition-colors text-center py-2 md:py-0">Projects</button>
+                <button onclick="showTab('experiences')" class="text-text hover:text-secondary transition-colors text-center py-2 md:py-0">Experiences</button>
+                <button onclick="showTab('education')" class="text-text hover:text-secondary transition-colors text-center py-2 md:py-0">Education</button>
+                <button onclick="showTab('resume')" class="text-text hover:text-secondary transition-colors text-center py-2 md:py-0">Resume</button>
             </div>
         </div>
     </nav>
@@ -68,7 +110,7 @@
         <div id="projects" class="tab-content">
             <div class="flex flex-col lg:flex-row gap-8">
                 <!-- Projects Section (Left) -->
-                <div class="lg:w-7/12">
+                <div class="w-full lg:w-7/12">
                     <h2 class="text-3xl font-bold text-heading mb-8">Projects</h2>
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all">
@@ -641,7 +683,24 @@
             
             // Update URL without page reload
             history.pushState({}, '', `#${tabId}`);
+            
+            // Close mobile menu when a tab is selected
+            if (window.innerWidth < 768) {
+                document.getElementById('nav-links').classList.add('hidden');
+            }
         }
+
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('hidden');
+        }
+
+        // Close mobile menu when screen is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                document.getElementById('nav-links').classList.remove('hidden');
+            }
+        });
 
         // Immediately hide all tabs except home when script loads
         document.querySelectorAll('.tab-content').forEach(tab => {
