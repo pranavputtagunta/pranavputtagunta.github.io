@@ -162,9 +162,9 @@
                             </div>
                             <p class="text-sm text-secondary mb-2">Vision-Powered Computer Assistance</p>
                             <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
-                                <li>Created a machine learning-powered desktop navigation interface for users with limited mobility</li>
-                                <li>Implemented facial tracking and voice recognition to allow hands-free computer navigation</li>
-                                <li>Built gesture detection pipeline with MediaPipe and OpenCV; voice processing via speech recognition</li>
+                                <li>Developed VisLink, an accessibility tool enabling immobile patients to interact with computers hands-free.</li>
+                                <li>Implemented facial tracking and blink detection using MediaPipe and OpenCV, reaching ~80% accuracy.</li>
+                                <li>Added speech recognition pipeline for voice-based navigation with ~70% accuracy.</li>
                                 <li>Currently working with doctors to develop an open-source version of this software to benefit patients</li>
                             </ul>
                             <div class="flex flex-wrap gap-2 mb-4">
@@ -173,6 +173,7 @@
                                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">MediaPipe</span>
                             </div>
                             <a href="https://github.com/pranavputtagunta/vislink" target="_blank" class="text-secondary hover:underline text-sm">View Project →</a>
+                            <a href="https://devpost.com/software/vislink-visual-link" target="_blank" class="text-secondary hover:underline text-sm">Devpost →</a>
                         </div>
 
                         <div class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all">
@@ -192,6 +193,7 @@
                                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Gemini</span>
                             </div>
                             <a href="https://github.com/pranavputtagunta/OpenLabel" target="_blank" class="text-secondary hover:underline text-sm">View Project →</a>
+                            <a href="https://devpost.com/software/openlabel" target="_blank" class="text-secondary hover:underline text-sm">Devpost →</a>
                         </div>
 
                         <div class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all">
@@ -213,6 +215,7 @@
                                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Letta</span>
                             </div>
                             <a href="https://github.com/pranavputtagunta/aletheia" target="_blank" class="text-secondary hover:underline text-sm">View Project →</a>
+                            <a href="https://devpost.com/software/aletheia-clarity-in-care" target="_blank" class="text-secondary hover:underline text-sm">Devpost →</a>
                         </div>
 
                         <div class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all">
@@ -414,15 +417,18 @@
             </div>
             <p class="text-lg font-medium mb-2">Research Assistant</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Designed motion planning algorithms to apply tape over wounds using RGB-D point cloud data for use in medical applications</li>
-                <li>Implemented surface fitting, mesh optimization, and path planning tools using Signed Distance Fields and Python for 3D digital wound reconstruction</li>
-                <li>Worked with optimization algorithms such as Monte Carlo Tree Search for wound treatment decisions</li>
+                <li>Contributing to a project developing a robotic automated wound treatment system.</li>
+                <li>Designed a novel heuristic algorithm to determine optimal gauze placement that minimizes material use while ensuring full wound coverage.</li>
+                <li>Increased processing speed significantly without sacrificing accuracy, enabling closer-to-real-time operation.</li>
+                <li>Built algorithms for mesh generation from point cloud wound scans, leveraging Signed Distance Fields and Monte Carlo Tree Search for path planning.</li>
+                <li>Work supports the long-term goal of creating scalable robotic healthcare solutions; currently in testing phase.</li>
             </ul>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 mb-4">
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Point Clouds</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Path Planning</span>
             </div>
+            <a href="https://ucsdarclab.com/" target="_blank" class="text-secondary hover:underline text-sm">View our work →</a>
         </div>
 
         <!-- Yonder Dynamics -->
@@ -433,16 +439,20 @@
             </div>
             <p class="text-lg font-medium mb-2">Autonomous Systems Developer</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Developed a heartbeat fail-safe to autonomously return rover to base upon communication loss</li>
-                <li>Extracted RTK GPS data via pyubx2 and visualized rover state using Matplotlib and ROS</li>
+                <li>Building a Mars rover prototype for international robotics competitions</li>
+                <li>Improved navigation accuracy from ~10m to ~10cm by integrating RTK GPS with the Pixhawk heading, achieving 100% waypoint completion (previously missed ~30%).</li>
+                <li>Implemented a return-to-base fail-safe on heartbeat loss, reducing mission failure rates from ~50% to ~20%.</li>
+                <li>Developed rover state visualization and tracking using ROS and pyubx2, improving operator insight and debugging efficiency.</li>
+                <li>Enhanced rover reliability in simulated Mars environments by combining hardware improvements with robust control software.</li>
             </ul>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 mb-4">
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">ROS</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">RTK GPS</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Vision</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">SolidWorks</span>
             </div>
+            <a href="https://yonderdynamics.com/" target="_blank" class="text-secondary hover:underline text-sm">See what we're up to →</a>
         </div>
 
         <!-- STEM Robotics Mentor -->
@@ -453,15 +463,43 @@
             </div>
             <p class="text-lg font-medium mb-2">Instructor & Coach</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Taught Onshape CAD and Python programming to VEX teams; guided students through full robot design lifecycle</li>
-                <li>Mentored rookie FRC team in Limelight vision targeting and autonomous navigation fundamentals</li>
+                <li>Coached 3 middle school VEX V5 teams and 1 high school FRC team on engineering, programming, and collaboration.</li>
+                <li>Taught Onshape CAD, drivetrain mechanics, gearboxes, and core programming principles, instilling design thinking skills.</li>
+                <li>Conducted peer design reviews to encourage collaboration and improve robot performance iteratively.</li>
+                <li>Helped the FRC team build a swerve drive robot within one week and a Limelight-based autonomous routine within two weeks.</li>
+                <li>Mentored students on teamwork, engineering process, and preparation for competitive robotics.</li>
             </ul>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 mb-4">
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Onshape</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Vision</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Java</span>
             </div>
+            <a href="https://www.wheelhouserobotics.com/" target="_blank" class="text-secondary hover:underline text-sm">Company website →</a>
+        </div>
+
+        <!-- Triton Racing -->
+        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+            <div class="flex flex-wrap justify-between items-start mb-4">
+                <h3 class="text-xl font-bold text-heading">Triton Racing</h3>
+                <span class="text-secondary">Oct 2024 - Jun 2025</span>
+            </div>
+            <p class="text-lg font-medium mb-2">Electrical Subteam Member</p>
+            <ul class="list-disc pl-5 mb-4 space-y-2">
+                <li>Collaborated on the electrical system design for Triton Racing’s Formula SAE electric vehicle, focusing on performance, safety, and reliability.</li>
+                <li>Designed and fabricated a Tractive System Status Indicator (TSSI) light mount using SolidWorks for CAD modeling and 3D printing for rapid prototyping, ensuring compliance with FSAE safety regulations.</li>
+                <li>Learned and applied basic PCB design in Altium, contributing to subsystem circuit layouts and gaining hands-on exposure to embedded electrical hardware.</li>
+                <li>Conducted Finite Element Analysis (FEA) in SolidWorks to validate structural integrity of mounts and components under simulated race conditions.</li>
+                <li>Utilized Gantt charts to manage project timelines, track milestones, and ensure alignment across the electrical subteam’s deliverables.</li>
+                <li>Gained practical experience in motorsport engineering, working in a fast-paced, interdisciplinary team to design and iterate components under real-world performance constraints.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
+                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Onshape</span>
+                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Vision</span>
+                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Java</span>
+            </div>
+            <a href="https://sae.eng.ucsd.edu/" target="_blank" class="text-secondary hover:underline text-sm">See what we're up to →</a>
         </div>
 
         <!-- Brains4Drones -->
@@ -472,15 +510,18 @@
             </div>
             <p class="text-lg font-medium mb-2">Software Engineering Intern</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Developed automated aerial solutions to assist utility companies in power line inspection in dangerous conditions</li>
-                <li>Implemented geospatial data processing pipeline for mapping road cracks using drone data and OpenCV</li>
-                <li>Developed computer vision algorithms for crack detection using TensorFlow and YOLOv8</li>
-                <li>Created drone mission simulations using Open3D for validation and optimization</li>
-                <li>Integrated terrain analysis for optimal takeoff zone detection</li>
-                <li>Engineered 3D visualization platform using Open3D for LiDAR point clouds</li>
-                <li>Developed real-time frame matching algorithms for live drone footage synchronization</li>
+                <li>Developed automated aerial solutions to assist utility companies in power line inspection in dangerous conditions.</li>
+                <li>Led development of PreCheck, a LiDAR-driven drone pre-flight mission planning tool for power line inspections.</li>
+                <li>Solved a ~50% mission failure rate caused by obstacle collisions, missed power lines, and poor visibility by implementing LiDAR-based adjustments, terrain modeling, and simulation videos to preview flights before launch.</li>
+                <li>Reduced failure rate to ~10% while improving inspection reliability and data clarity; attracted 2 new clients through PreCheck’s simulation feature showcased at conventions.</li>
+                <li>Built tools including GPU vectorization for faster point cloud processing, KNN obstacle detection, and terrain analysis for safe takeoff zones.</li>
+                <li>Developed a precise launchpad detection algorithm using OpenCV to assess drone GPS accuracy.</li>
+                <li>Created real-time frame matching algorithms with OpenCV and SciPy to synchronize live drone footage with pre-recorded frames for effective monitoring.</li>
+                <li>Designed and implemented custom flight path optimization algorithms using SciPy and NumPy, increasing mission efficiency.</li>
+                <li>Applied depth perception analysis with OpenCV and PyTorch to compute object heights in video streams for spatial analysis and detection.</li>
+                <li>Implemented geospatial data processing pipeline to map identified road cracks onto Google Maps, integrating drone geolocation data with OpenCV and gmplot.</li>
             </ul>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 mb-4">
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">APIs</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Open3D</span>
@@ -488,6 +529,22 @@
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">YOLO</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Point Clouds</span>
             </div>
+            <div class="mb-4">
+                <h4 class="text-lg font-bold text-heading mb-2">PreCheck Demo Video</h4>
+                <p class="mb-4 text-sm text-secondary">
+                    Watch a demonstration of the PreCheck LiDAR-driven drone mission planning tool in action, showcasing automated flight path generation and obstacle avoidance for power line inspections.
+                </p>
+                <div class="mb-4 flex justify-start">
+                    <video 
+                        src="https://brains4drones.com/videos/SeeMore-PreCheck-Draft8-crf30.mp4" 
+                        controls 
+                        title="PreCheck Demo Video"
+                        class="rounded-lg"
+                        style="width: 640px; height: 360px;"
+                    ></video>
+                </div>
+            </div>
+            <a href="https://brains4drones.com/" target="_blank" class="text-secondary hover:underline text-sm">View company website →</a>
         </div>
 
         <!-- FIRST Robotics Challenge -->
@@ -504,11 +561,12 @@
                 <li>Collaborated across teams for seamless system integration</li>
                 <li>Engaged in STEM outreach and mentoring initiatives</li>
             </ul>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-wrap gap-2 mb-4">
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Java</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">SolidWorks</span>
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Vision</span>
             </div>
+            <a href="https://frc9088.weebly.com/" target="_blank" class="text-secondary hover:underline text-sm">Team website →</a>
         </div>
 
         <!-- NASA Highschool Aerospace Scholars -->
