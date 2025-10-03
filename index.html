@@ -144,6 +144,8 @@
                                 <li>Built a LangGraph-based multi-agent workflow for lesson generation, quiz creation, and feedback refinement</li>
                                 <li>Implemented RAG and AWS to integrate uploaded textbooks and syllabi into lessons</li>
                                 <li>Engineered tool-using agents with context engineering, persistent memory, and progress tracking</li>
+                                <li>Developed a scalable Flask API using LangChain to automate lessons, quizzes, and generate personalized user feedback.</li>
+                                <li>Created a custom table of contents-based indexing system which optimized LLM query efficiency for learning materials.</li>
                             </ul>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">LangChain</span>
@@ -164,7 +166,9 @@
                             <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
                                 <li>Developed VisLink, an accessibility tool enabling immobile patients to interact with computers hands-free.</li>
                                 <li>Implemented facial tracking and blink detection using MediaPipe and OpenCV, reaching ~80% accuracy.</li>
+                                <li>Engineered a low-latency vision pipeline achieving 80% accuracy in real-time facial signal processing for cursor control.</li>
                                 <li>Added speech recognition pipeline for voice-based navigation with ~70% accuracy.</li>
+                                <li>Integrated vision controls, blink detection, smoothing algorithms, and speech recognition, boosting tool reliability.</li>
                                 <li>Currently working with doctors to develop an open-source version of this software to benefit patients</li>
                             </ul>
                             <div class="flex flex-wrap gap-2 mb-4">
@@ -228,6 +232,9 @@
                                 <li>Integrated Google Gemini to provide personalized mental health support and tailored self-care tasks</li>
                                 <li>Developed gamified self-care experience through interactive daily quests</li>
                                 <li>Designed intuitive UI/UX for inclusive and seamless user experience</li>
+                                <li>Architected a full-stack mental health app with responsive React frontend, a Flask backend, and a MongoDB database.</li>
+                                <li>Integrated Gemini API to power AI-driven self-care recommendations and interactive user progress tracking features.</li>
+                                <li>Delivered a gamified user experience with daily quests, journaling, awards, and chatbots, securing 4th place.</li>
                                 <li>Competed against graduate students and upperclassmen as a freshman</li>
                             </ul>
                             <div class="flex flex-wrap gap-2 mb-4">
@@ -251,6 +258,9 @@
                                 <li>Implementing targeted skill development with step-by-step training instructions</li>
                                 <li>Integrating OpenCV-based video processing for real-time feedback and comparison</li>
                                 <li>Creating side-by-side video analysis with expert demonstrations</li>
+                                <li>Building a scalable AI coaching app on GCP, using a PostgreSQL database, React Native, and Redis + Celery.</li>
+                                <li>Built a REST API powered by an LLM to serve real-time video analysis and personalized feedback with Firebase auth.</li>
+                                <li>Engineered an OpenCV pipeline for gamified form analysis, integrating engaging ML insights with the UI.</li>
                             </ul>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">React</span>
@@ -290,28 +300,58 @@
                         <h3 class="text-xl font-semibold text-heading mb-4">Languages</h3>
                         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
                     <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                        <i class="fab fa-python text-4xl mb-2"></i>
+                        <span class="text-center">Python</span>
+                        <span class="text-xs text-secondary mt-1">Advanced</span>
+                    </div>
+                        <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                            <i class="fas fa-microchip text-4xl mb-2"></i>
+                            <span class="text-center">Assembly</span>
+                            <span class="text-xs text-secondary mt-1">Proficient</span>
+                        </div>
+                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
                         <i class="fab fa-java text-4xl mb-2"></i>
                         <span class="text-center">Java</span>
                         <span class="text-xs text-secondary mt-1">Advanced</span>
                     </div>
                     <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fab fa-python text-4xl mb-2"></i>
-                        <span class="text-center">Python</span>
-                        <span class="text-xs text-secondary mt-1">Advanced</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-copyright text-4xl mb-2"></i>
-                        <span class="text-center">C</span>
+                        <i class="fas fa-code text-4xl mb-2"></i>
+                        <span class="text-center">C / C++</span>
                         <span class="text-xs text-secondary mt-1">Advanced</span>
                     </div>
                     <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
                         <i class="fab fa-js text-4xl mb-2"></i>
-                        <span class="text-center">JavaScript</span>
+                        <span class="text-center">JavaScript / TypeScript</span>
                         <span class="text-xs text-secondary mt-1">Proficient</span>
                     </div>
                     <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-microchip text-4xl mb-2"></i>
-                        <span class="text-center">Assembly</span>
+                        <i class="fas fa-database text-4xl mb-2"></i>
+                        <span class="text-center">SQL / NoSQL</span>
+                        <span class="text-xs text-secondary mt-1">Proficient</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                        <i class="fas fa-robot text-4xl mb-2"></i>
+                        <span class="text-center">ROS</span>
+                        <span class="text-xs text-secondary mt-1">Proficient</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                        <i class="fas fa-linux text-4xl mb-2"></i>
+                        <span class="text-center">Linux</span>
+                        <span class="text-xs text-secondary mt-1">Proficient</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                        <i class="fab fa-git-alt text-4xl mb-2"></i>
+                        <span class="text-center">Git / GitHub</span>
+                        <span class="text-xs text-secondary mt-1">Proficient</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                        <i class="fas fa-apple text-4xl mb-2"></i>
+                        <span class="text-center">Swift</span>
+                        <span class="text-xs text-secondary mt-1">Familiar</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                        <i class="fas fa-code-branch text-4xl mb-2"></i>
+                        <span class="text-center">HTML / CSS</span>
                         <span class="text-xs text-secondary mt-1">Proficient</span>
                     </div>
                 </div>
@@ -330,20 +370,8 @@
                         <span class="text-center">React</span>
                     </div>
                     <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-database text-4xl mb-2"></i>
-                        <span class="text-center">MongoDB</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fab fa-git-alt text-4xl mb-2"></i>
-                        <span class="text-center">Git</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-cloud text-4xl mb-2"></i>
-                        <span class="text-center">REST APIs</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-eye text-4xl mb-2"></i>
-                        <span class="text-center">OpenCV</span>
+                        <i class="fas fa-code text-4xl mb-2"></i>
+                        <span class="text-center">Node.js</span>
                     </div>
                     <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
                         <i class="fas fa-brain text-4xl mb-2"></i>
@@ -354,20 +382,32 @@
                         <span class="text-center">PyTorch</span>
                     </div>
                     <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-robot text-4xl mb-2"></i>
-                        <span class="text-center">ROS</span>
+                        <i class="fas fa-eye text-4xl mb-2"></i>
+                        <span class="text-center">OpenCV</span>
                     </div>
                     <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-link text-4xl mb-2"></i>
-                        <span class="text-center">LangChain</span>
+                        <i class="fas fa-network-wired text-4xl mb-2"></i>
+                        <span class="text-center">FastAPI</span>
                     </div>
                     <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-project-diagram text-4xl mb-2"></i>
-                        <span class="text-center">LangGraph</span>
+                        <i class="fas fa-box text-4xl mb-2"></i>
+                        <span class="text-center">Docker</span>
                     </div>
                     <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-cube text-4xl mb-2"></i>
-                        <span class="text-center">Open3D</span>
+                        <i class="fas fa-cloud text-4xl mb-2"></i>
+                        <span class="text-center">AWS / GCP</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                        <i class="fas fa-search text-4xl mb-2"></i>
+                        <span class="text-center">YOLO</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                        <i class="fas fa-microchip text-4xl mb-2"></i>
+                        <span class="text-center">CUDA</span>
+                    </div>
+                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+                        <i class="fas fa-database text-4xl mb-2"></i>
+                        <span class="text-center">PostgreSQL / MongoDB</span>
                     </div>
                 </div>
             </div>
@@ -377,28 +417,34 @@
                 <h3 class="text-xl font-semibold text-heading mb-4">Concepts & Expertise</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Object-Oriented Programming</span>
+                        <span class="text-sm">Full-stack Development</span>
                     </div>
                     <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">CI/CD</span>
+                        <span class="text-sm">APIs & Microservices</span>
                     </div>
                     <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Agile Development</span>
+                        <span class="text-sm">Machine Learning</span>
                     </div>
                     <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
                         <span class="text-sm">Computer Vision</span>
                     </div>
                     <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Neural Networks</span>
+                        <span class="text-sm">Robotics Perception</span>
                     </div>
                     <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Retrieval-Augmented Generation</span>
+                        <span class="text-sm">Motion Planning</span>
                     </div>
                     <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Agentic AI</span>
+                        <span class="text-sm">Data Pipelines & Distributed Systems</span>
                     </div>
                     <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Backend Development</span>
+                        <span class="text-sm">Algorithm Optimization</span>
+                    </div>
+                    <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
+                        <span class="text-sm">Cloud Infrastructure & CI/CD</span>
+                    </div>
+                    <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
+                        <span class="text-sm">Agile Development</span>
                     </div>
                 </div>
             </div>
@@ -419,9 +465,11 @@
             <ul class="list-disc pl-5 mb-4 space-y-2">
                 <li>Contributing to a project developing a robotic automated wound treatment system.</li>
                 <li>Designed a novel heuristic algorithm to determine optimal gauze placement that minimizes material use while ensuring full wound coverage.</li>
-                <li>Increased processing speed significantly without sacrificing accuracy, enabling closer-to-real-time operation.</li>
-                <li>Built algorithms for mesh generation from point cloud wound scans, leveraging Signed Distance Fields and Monte Carlo Tree Search for path planning.</li>
                 <li>Work supports the long-term goal of creating scalable robotic healthcare solutions; currently in testing phase.</li>
+                <li>Built motion planning achieving 200% faster runtime, 10% gauze savings, and 100% wound coverage in robotic trials.</li>
+                <li>Reconstructed 3D meshes from RGB-D scans with Open3D + SDFs, reaching 80% accuracy for field medical robotics.</li>
+                <li>Implemented MCTS + heuristics, cutting compute by 30% and enabling near real-time robotic gauze tape application.</li>
+                <li>Integrated algorithms into humanoid prototypes, collaborating with researchers on clinical feasibility testing.</li>
             </ul>
             <div class="flex flex-wrap gap-2 mb-4">
                 <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
@@ -440,9 +488,10 @@
             <p class="text-lg font-medium mb-2">Autonomous Systems Developer</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
                 <li>Building a Mars rover prototype for international robotics competitions</li>
-                <li>Improved navigation accuracy from ~10m to ~10cm by integrating RTK GPS with the Pixhawk heading, achieving 100% waypoint completion (previously missed ~30%).</li>
-                <li>Implemented a return-to-base fail-safe on heartbeat loss, reducing mission failure rates from ~50% to ~20%.</li>
+                <li>Integrated RTK GPS with Pixhawk, boosting accuracy from 10m → 10cm, eliminating 30% navigation failures.</li>
+                <li>Built return-to-base fail-safe on ROS heartbeat loss, reducing rover mission failures by 30% in testing.</li>
                 <li>Developed rover state visualization and tracking using ROS and pyubx2, improving operator insight and debugging efficiency.</li>
+                <li>Developed React + ROS dashboards, accelerating debugging and providing real-time operator telemetry insights.</li>
                 <li>Enhanced rover reliability in simulated Mars environments by combining hardware improvements with robust control software.</li>
             </ul>
             <div class="flex flex-wrap gap-2 mb-4">
@@ -478,10 +527,10 @@
             </div>
             <p class="text-lg font-medium mb-2">Instructor & Coach</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Coached 3 middle school VEX V5 teams and 1 high school FRC team on engineering, programming, and collaboration.</li>
-                <li>Taught Onshape CAD, drivetrain mechanics, gearboxes, and core programming principles, instilling design thinking skills.</li>
-                <li>Conducted peer design reviews to encourage collaboration and improve robot performance iteratively.</li>
-                <li>Helped the FRC team build a swerve drive robot within one week and a Limelight-based autonomous routine within two weeks.</li>
+                <li>Coached 28 students across 3 VEX teams and 1 FRC team, teaching CAD and Java, Python, Git, CV, and OOP.</li>
+                <li>Guided FRC team to make swerve robot in 1 week, vision-based autonomous in 2, accelerating competition readiness.</li>
+                <li>Improved technical collaboration and design reviews by organizing PDRs, debugging sessions, and Git workflows.</li>
+                <li>Boosted student outcomes by making hands-on lessons that increased retention and improved competition performance.</li>
                 <li>Mentored students on teamwork, engineering process, and preparation for competitive robotics.</li>
             </ul>
             <div class="flex flex-wrap gap-2 mb-4">
@@ -526,12 +575,14 @@
             <p class="text-lg font-medium mb-2">Software Engineering Intern</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
                 <li>Developed automated aerial solutions to assist utility companies in power line inspection in dangerous conditions.</li>
-                <li>Led development of PreCheck, a LiDAR-driven drone pre-flight mission planning tool for power line inspections.</li>
                 <li>Solved a ~50% mission failure rate caused by obstacle collisions, missed power lines, and poor visibility by implementing LiDAR-based adjustments, terrain modeling, and simulation videos to preview flights before launch.</li>
+                <li>Led development of PreCheck LiDAR tool; cut drone mission failures by 60% through terrain modeling and analysis.</li>
                 <li>Reduced failure rate to ~10% while improving inspection reliability and data clarity; attracted 2 new clients through PreCheck’s simulation feature showcased at conventions.</li>
                 <li>Built tools including GPU vectorization for faster point cloud processing, KNN obstacle detection, and terrain analysis for safe takeoff zones.</li>
+                <li>Designed GPU CUDA pipelines with KNN, accelerating point-cloud obstacle detection for safer drone missions.</li>
                 <li>Developed a precise launchpad detection algorithm using OpenCV to assess drone GPS accuracy.</li>
                 <li>Created real-time frame matching algorithms with OpenCV and SciPy to synchronize live drone footage with pre-recorded frames for effective monitoring.</li>
+                <li>Built TensorFlow crack detection, automating inspections and reducing manual review time by 50% for utilities.</li>
                 <li>Designed and implemented custom flight path optimization algorithms using SciPy and NumPy, increasing mission efficiency.</li>
                 <li>Applied depth perception analysis with OpenCV and PyTorch to compute object heights in video streams for spatial analysis and detection.</li>
                 <li>Implemented geospatial data processing pipeline to map identified road cracks onto Google Maps, integrating drone geolocation data with OpenCV and gmplot.</li>
