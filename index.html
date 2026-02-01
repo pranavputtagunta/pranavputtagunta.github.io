@@ -1,900 +1,1756 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pranav Puttagunta - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0a192f',
-                        secondary: '#64ffda',
-                        text: '#8892b0',
-                        heading: '#ccd6f6'
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0a192f",
+              secondary: "#64ffda",
+              text: "#8892b0",
+              heading: "#ccd6f6",
+            },
+          },
+        },
+      };
     </script>
     <style>
-        .tab-content {
-            display: none !important;
-        }
-        .tab-content.active {
-            display: block !important;
-        }
+      .tab-content {
+        display: none !important;
+      }
+      .tab-content.active {
+        display: block !important;
+      }
 
-        /* Mobile Navigation */
-        @media (max-width: 768px) {
-            #nav-links {
-                background-color: rgba(10, 25, 47, 0.95);
-                width: 100%;
-                padding: 1rem 0;
-            }
-            #nav-links.hidden {
-                display: none;
-            }
-            #nav-links:not(.hidden) {
-                display: flex;
-            }
-            #nav-links button {
-                width: 100%;
-                text-align: center;
-            }
-        }
-        
-        /* Responsive text adjustments */
-        @media (max-width: 640px) {
-            .text-5xl {
-                font-size: 2.5rem;
-            }
-            .text-3xl {
-                font-size: 1.875rem;
-            }
-            .text-xl {
-                font-size: 1.25rem;
-            }
-        }
-
-        /* Improved mobile spacing */
-        @media (max-width: 768px) {
-            .container {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            .space-y-8 > * + * {
-                margin-top: 2rem;
-            }
-        }
-
-        /* Smooth transitions for mobile menu */
+      /* Mobile Navigation */
+      @media (max-width: 768px) {
         #nav-links {
-            transition: all 0.3s ease-in-out;
+          background-color: rgba(10, 25, 47, 0.95);
+          width: 100%;
+          padding: 1rem 0;
         }
+        #nav-links.hidden {
+          display: none;
+        }
+        #nav-links:not(.hidden) {
+          display: flex;
+        }
+        #nav-links button {
+          width: 100%;
+          text-align: center;
+        }
+      }
 
-        /* Prevent horizontal scroll on mobile */
-        body {
-            overflow-x: hidden;
+      /* Responsive text adjustments */
+      @media (max-width: 640px) {
+        .text-5xl {
+          font-size: 2.5rem;
         }
+        .text-3xl {
+          font-size: 1.875rem;
+        }
+        .text-xl {
+          font-size: 1.25rem;
+        }
+      }
+
+      /* Improved mobile spacing */
+      @media (max-width: 768px) {
+        .container {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+        .space-y-8 > * + * {
+          margin-top: 2rem;
+        }
+      }
+
+      /* Smooth transitions for mobile menu */
+      #nav-links {
+        transition: all 0.3s ease-in-out;
+      }
+
+      /* Prevent horizontal scroll on mobile */
+      body {
+        overflow-x: hidden;
+      }
     </style>
-</head>
-<body class="bg-primary text-text">
+  </head>
+  <body class="bg-primary text-text">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-primary/90 backdrop-blur-sm z-50 border-b border-secondary/20">
-        <div class="container mx-auto px-4 py-4">
-            <!-- Mobile menu button -->
-            <div class="flex items-center justify-between md:hidden">
-                <span class="text-heading font-bold">Menu</span>
-                <button onclick="toggleMobileMenu()" class="text-text hover:text-secondary transition-colors p-2">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-            
-            <!-- Navigation links -->
-            <div id="nav-links" class="hidden md:flex md:justify-center flex-col items-center space-y-4 md:space-y-0 md:flex-row md:space-x-8">
-                <button onclick="showTab('home')" class="text-text hover:text-secondary transition-colors text-center py-3 md:py-0 border-b border-secondary/20 md:border-0">Home</button>
-                <button onclick="showTab('projects')" class="text-text hover:text-secondary transition-colors text-center py-3 md:py-0 border-b border-secondary/20 md:border-0">Projects</button>
-                <button onclick="showTab('experiences')" class="text-text hover:text-secondary transition-colors text-center py-3 md:py-0 border-b border-secondary/20 md:border-0">Experiences</button>
-                <button onclick="showTab('education')" class="text-text hover:text-secondary transition-colors text-center py-3 md:py-0 border-b border-secondary/20 md:border-0">Education</button>
-                <button onclick="showTab('resume')" class="text-text hover:text-secondary transition-colors text-center py-3 md:py-0">Resume</button>
-            </div>
+    <nav
+      class="fixed top-0 w-full bg-primary/90 backdrop-blur-sm z-50 border-b border-secondary/20"
+    >
+      <div class="container mx-auto px-4 py-4">
+        <!-- Mobile menu button -->
+        <div class="flex items-center justify-between md:hidden">
+          <span class="text-heading font-bold">Menu</span>
+          <button
+            onclick="toggleMobileMenu()"
+            class="text-text hover:text-secondary transition-colors p-2"
+          >
+            <i class="fas fa-bars text-xl"></i>
+          </button>
         </div>
+
+        <!-- Navigation links -->
+        <div
+          id="nav-links"
+          class="hidden md:flex md:justify-center flex-col items-center space-y-4 md:space-y-0 md:flex-row md:space-x-8"
+        >
+          <button
+            onclick="showTab('home')"
+            class="text-text hover:text-secondary transition-colors text-center py-3 md:py-0 border-b border-secondary/20 md:border-0"
+          >
+            Home
+          </button>
+          <button
+            onclick="showTab('projects')"
+            class="text-text hover:text-secondary transition-colors text-center py-3 md:py-0 border-b border-secondary/20 md:border-0"
+          >
+            Projects
+          </button>
+          <button
+            onclick="showTab('experiences')"
+            class="text-text hover:text-secondary transition-colors text-center py-3 md:py-0 border-b border-secondary/20 md:border-0"
+          >
+            Experiences
+          </button>
+          <button
+            onclick="showTab('education')"
+            class="text-text hover:text-secondary transition-colors text-center py-3 md:py-0 border-b border-secondary/20 md:border-0"
+          >
+            Education
+          </button>
+          <button
+            onclick="showTab('resume')"
+            class="text-text hover:text-secondary transition-colors text-center py-3 md:py-0"
+          >
+            Resume
+          </button>
+        </div>
+      </div>
     </nav>
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 pt-24">
-        <!-- Home Tab -->
-        <div id="home" class="tab-content active">
-            <div class="min-h-[80vh] flex flex-col justify-center items-center text-center">
-                <h1 class="text-5xl md:text-6xl font-bold text-heading mb-4">Pranav Puttagunta</h1>
-                <p class="text-xl md:text-2xl mb-8">Computer Science @ UCSD</p>
-                <div class="flex space-x-6">
-                    <a href="https://github.com/pranavputtagunta" target="_blank" class="text-3xl text-text hover:text-secondary transition-colors">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/pranav-puttagunta" target="_blank" class="text-3xl text-text hover:text-secondary transition-colors">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="mailto:pputtagunta@ucsd.edu" class="text-3xl text-text hover:text-secondary transition-colors">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
+      <!-- Home Tab -->
+      <div id="home" class="tab-content active">
+        <div
+          class="min-h-[80vh] flex flex-col justify-center items-center text-center"
+        >
+          <h1 class="text-5xl md:text-6xl font-bold text-heading mb-4">
+            Pranav Puttagunta
+          </h1>
+          <p class="text-xl md:text-2xl mb-8">Computer Science @ UCSD</p>
+          <div class="flex space-x-6">
+            <a
+              href="https://github.com/pranavputtagunta"
+              target="_blank"
+              class="text-3xl text-text hover:text-secondary transition-colors"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://linkedin.com/in/pranav-puttagunta"
+              target="_blank"
+              class="text-3xl text-text hover:text-secondary transition-colors"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="mailto:pputtagunta@ucsd.edu"
+              class="text-3xl text-text hover:text-secondary transition-colors"
+            >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
         </div>
+      </div>
 
-        <!-- Projects Tab -->
-        <div id="projects" class="tab-content">
-            <div class="flex flex-col lg:flex-row gap-8">
-                <!-- Projects Section (Left) -->
-                <div class="w-full lg:w-7/12">
-                    <h2 class="text-3xl font-bold text-heading mb-8">Projects</h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold text-heading">SideKick</h3>
-                                <span class="text-xs text-secondary">In Development</span>
-                            </div>
-                            <p class="text-sm text-secondary mb-2">AI-Powered Sports Training Platform</p>
-                            <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
-                                <li>Building personalized training plans using LLM-powered recommendation system</li>
-                                <li>Implementing targeted skill development with step-by-step training instructions</li>
-                                <li>Integrating OpenCV-based video processing for real-time feedback and comparison</li>
-                                <li>Creating side-by-side video analysis with expert demonstrations</li>
-                                <li>Building a scalable AI coaching app on GCP, using a PostgreSQL database, React Native, and Redis + Celery.</li>
-                                <li>Built a REST API powered by an LLM to serve real-time video analysis and personalized feedback with Firebase auth.</li>
-                                <li>Engineered an OpenCV pipeline for gamified form analysis, integrating engaging ML insights with the UI.</li>
-                            </ul>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">React</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Flask</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">OpenCV</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Python</span>
-                            </div>
-                            <a href="https://github.com/pranavputtagunta/SideKick" target="_blank" class="text-secondary hover:underline text-sm">View Project →</a>
-                        </div>
-
-                        <div class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold text-heading">VisLink</h3>
-                                <span class="text-xs text-secondary">1st Overall @ SacHacks VI</span>
-                            </div>
-                            <p class="text-sm text-secondary mb-2">Vision-Powered Computer Assistance</p>
-                            <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
-                                <li>Developed VisLink, an accessibility tool enabling immobile patients to interact with computers hands-free.</li>
-                                <li>Implemented facial tracking and blink detection using MediaPipe and OpenCV, reaching ~80% accuracy.</li>
-                                <li>Engineered a low-latency vision pipeline achieving 80% accuracy in real-time facial signal processing for cursor control.</li>
-                                <li>Added speech recognition pipeline for voice-based navigation with ~70% accuracy.</li>
-                                <li>Integrated vision controls, blink detection, smoothing algorithms, and speech recognition, boosting tool reliability.</li>
-                                <li>Currently working with doctors to develop an open-source version of this software to benefit patients</li>
-                            </ul>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Python</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">OpenCV</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">MediaPipe</span>
-                            </div>
-                            <a href="https://github.com/pranavputtagunta/vislink" target="_blank" class="text-secondary hover:underline text-sm">View Project →</a>
-                            <a href="https://devpost.com/software/vislink-visual-link" target="_blank" class="text-secondary hover:underline text-sm">Devpost →</a>
-                        </div>
-
-                        <div class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold text-heading">PrepNotch</h3>
-                                <span class="text-xs text-secondary">In Development</span>
-                            </div>
-                            <p class="text-sm text-secondary mb-2">LLM-Powered Personalized Tutoring Platform</p>
-                            <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
-                                <li>Designing an agentic tutoring system that creates dynamic learning plans from user goals and documents</li>
-                                <li>Built a LangGraph-based multi-agent workflow for lesson generation, quiz creation, and feedback refinement</li>
-                                <li>Implemented RAG and AWS to integrate uploaded textbooks and syllabi into lessons</li>
-                                <li>Engineered tool-using agents with context engineering, persistent memory, and progress tracking</li>
-                                <li>Developed a scalable Flask API using LangChain to automate lessons, quizzes, and generate personalized user feedback.</li>
-                                <li>Created a custom table of contents-based indexing system which optimized LLM query efficiency for learning materials.</li>
-                            </ul>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">LangChain</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">LangGraph</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">RAG</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Cursor</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">AWS</span>
-                            </div>
-                            <a href="https://github.com/pranavputtagunta/prep_notch" target="_blank" class="text-secondary hover:underline text-sm">View Project →</a>
-                        </div>
-
-                        <div class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold text-heading">OpenLabel</h3>
-                                <span class="text-xs text-secondary">1st in Track @ DiamondHacks</span>
-                            </div>
-                            <p class="text-sm text-secondary mb-2">Vision & LLM-Powered Allergy and Diet Recommender</p>
-                            <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
-                                <li>Built a dietary preference agent that evaluates food packaging through image input and ingredient scanning</li>
-                                <li>Built an image-processing pipeline to parse product images and ingredient labels using Gemini + CV</li>
-                                <li>Generated user-specific buying recommendations using LLMs based on allergies and goals</li>
-                            </ul>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Python</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">OpenCV</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Gemini</span>
-                            </div>
-                            <a href="https://github.com/pranavputtagunta/OpenLabel" target="_blank" class="text-secondary hover:underline text-sm">View Project →</a>
-                            <a href="https://devpost.com/software/openlabel" target="_blank" class="text-secondary hover:underline text-sm">Devpost →</a>
-                        </div>
-
-                        <div class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold text-heading">Alethiea</h3>
-                                <span class="text-xs text-secondary">Berkeley AI Hackathon</span>
-                            </div>
-                            <p class="text-sm text-secondary mb-2">Agentic-Driven Healthcare Management</p>
-                            <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
-                                <li>Developed a personalized pill tracker that offers medication guidance and autonomous alerts</li>
-                                <li>Used OpenCV and Gemini API to detect and classify pills from images; tracked dosage timelines</li>
-                                <li>Designed agent framework to auto-adjust routines and send alerts or contact physicians as needed</li>
-                            </ul>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Python</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Streamlit</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">OpenCV</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Gemini</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Letta</span>
-                            </div>
-                            <a href="https://github.com/pranavputtagunta/aletheia" target="_blank" class="text-secondary hover:underline text-sm">View Project →</a>
-                            <a href="https://devpost.com/software/aletheia-clarity-in-care" target="_blank" class="text-secondary hover:underline text-sm">Devpost →</a>
-                        </div>
-
-                        <div class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold text-heading">MentalQuest</h3>
-                                <span class="text-xs text-secondary">4th Place</span>
-                            </div>
-                            <p class="text-sm text-secondary mb-2">AI-Powered Mental Health Support Platform</p>
-                            <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
-                                <li>Integrated Google Gemini to provide personalized mental health support and tailored self-care tasks</li>
-                                <li>Developed gamified self-care experience through interactive daily quests</li>
-                                <li>Designed intuitive UI/UX for inclusive and seamless user experience</li>
-                                <li>Architected a full-stack mental health app with responsive React frontend, a Flask backend, and a MongoDB database.</li>
-                                <li>Integrated Gemini API to power AI-driven self-care recommendations and interactive user progress tracking features.</li>
-                                <li>Delivered a gamified user experience with daily quests, journaling, awards, and chatbots, securing 4th place.</li>
-                                <li>Competed against graduate students and upperclassmen as a freshman</li>
-                            </ul>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">React</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Flask</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">MongoDB</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Python</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">Gemini API</span>
-                            </div>
-                            <a href="https://github.com/pranavputtagunta/mentalquest" target="_blank" class="text-secondary hover:underline text-sm">View Project →</a>
-                        </div>
-
-                        <div class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-bold text-heading">LightYear</h3>
-                            </div>
-                            <p class="text-sm text-secondary mb-2">Space Tourism Website</p>
-                            <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
-                                <li>Designed and developed an interactive space tourism website for Webmaster 2023</li>
-                                <li>Implemented user login functionality and engaging animations</li>
-                                <li>Created responsive design with interactive features for enhanced user experience</li>
-                            </ul>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">HTML</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">CSS</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs">JavaScript</span>
-                            </div>
-                            <a href="https://lightyear-webmaster.glitch.me/" target="_blank" class="text-secondary hover:underline text-sm">View Project →</a>
-                        </div>
-                    </div>
+      <!-- Projects Tab -->
+      <div id="projects" class="tab-content">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Projects Section (Left) -->
+          <div class="w-full lg:w-7/12">
+            <h2 class="text-3xl font-bold text-heading mb-8">Projects</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div
+                class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all"
+              >
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-xl font-bold text-heading">SideKick</h3>
+                  <span class="text-xs text-secondary">In Development</span>
                 </div>
-
-                <!-- Skills Section (Right) -->
-                <div class="lg:w-5/12">
-                    <h2 class="text-3xl font-bold text-heading mb-8">Technical Skills</h2>
-                    
-                    <!-- Languages Section -->
-                    <div class="mb-8">
-                        <h3 class="text-xl font-semibold text-heading mb-4">Languages</h3>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fab fa-python text-4xl mb-2"></i>
-                        <span class="text-center">Python</span>
-                        <span class="text-xs text-secondary mt-1">Advanced</span>
-                    </div>
-                        <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                            <i class="fas fa-microchip text-4xl mb-2"></i>
-                            <span class="text-center">Assembly</span>
-                            <span class="text-xs text-secondary mt-1">Proficient</span>
-                        </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fab fa-java text-4xl mb-2"></i>
-                        <span class="text-center">Java</span>
-                        <span class="text-xs text-secondary mt-1">Advanced</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-code text-4xl mb-2"></i>
-                        <span class="text-center">C / C++</span>
-                        <span class="text-xs text-secondary mt-1">Advanced</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fab fa-js text-4xl mb-2"></i>
-                        <span class="text-center">JavaScript / TypeScript</span>
-                        <span class="text-xs text-secondary mt-1">Proficient</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-database text-4xl mb-2"></i>
-                        <span class="text-center">SQL / NoSQL</span>
-                        <span class="text-xs text-secondary mt-1">Proficient</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-robot text-4xl mb-2"></i>
-                        <span class="text-center">ROS</span>
-                        <span class="text-xs text-secondary mt-1">Proficient</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-linux text-4xl mb-2"></i>
-                        <span class="text-center">Linux</span>
-                        <span class="text-xs text-secondary mt-1">Proficient</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fab fa-git-alt text-4xl mb-2"></i>
-                        <span class="text-center">Git / GitHub</span>
-                        <span class="text-xs text-secondary mt-1">Proficient</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-apple text-4xl mb-2"></i>
-                        <span class="text-center">Swift</span>
-                        <span class="text-xs text-secondary mt-1">Familiar</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-code-branch text-4xl mb-2"></i>
-                        <span class="text-center">HTML / CSS</span>
-                        <span class="text-xs text-secondary mt-1">Proficient</span>
-                    </div>
+                <p class="text-sm text-secondary mb-2">
+                  AI-Powered Sports Training Platform
+                </p>
+                <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
+                  <li>
+                    Building personalized training plans using LLM-powered
+                    recommendation system
+                  </li>
+                  <li>
+                    Implementing targeted skill development with step-by-step
+                    training instructions
+                  </li>
+                  <li>
+                    Integrating OpenCV-based video processing for real-time
+                    feedback and comparison
+                  </li>
+                  <li>
+                    Creating side-by-side video analysis with expert
+                    demonstrations
+                  </li>
+                  <li>
+                    Building a scalable AI coaching app on GCP, using a
+                    PostgreSQL database, React Native, and Redis + Celery.
+                  </li>
+                  <li>
+                    Built a REST API powered by an LLM to serve real-time video
+                    analysis and personalized feedback with Firebase auth.
+                  </li>
+                  <li>
+                    Engineered an OpenCV pipeline for gamified form analysis,
+                    integrating engaging ML insights with the UI.
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >React</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Flask</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >OpenCV</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Python</span
+                  >
                 </div>
+                <a
+                  href="https://github.com/pranavputtagunta/SideKick"
+                  target="_blank"
+                  class="text-secondary hover:underline text-sm"
+                  >View Project →</a
+                >
+              </div>
+
+              <div
+                class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all"
+              >
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-xl font-bold text-heading">VisLink</h3>
+                  <span class="text-xs text-secondary"
+                    >1st Overall @ SacHacks VI</span
+                  >
+                </div>
+                <p class="text-sm text-secondary mb-2">
+                  Vision-Powered Computer Assistance
+                </p>
+                <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
+                  <li>
+                    Developed VisLink, an accessibility tool enabling immobile
+                    patients to interact with computers hands-free.
+                  </li>
+                  <li>
+                    Implemented facial tracking and blink detection using
+                    MediaPipe and OpenCV, reaching ~80% accuracy.
+                  </li>
+                  <li>
+                    Engineered a low-latency vision pipeline achieving 80%
+                    accuracy in real-time facial signal processing for cursor
+                    control.
+                  </li>
+                  <li>
+                    Added speech recognition pipeline for voice-based navigation
+                    with ~70% accuracy.
+                  </li>
+                  <li>
+                    Integrated vision controls, blink detection, smoothing
+                    algorithms, and speech recognition, boosting tool
+                    reliability.
+                  </li>
+                  <li>
+                    Currently working with doctors to develop an open-source
+                    version of this software to benefit patients
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Python</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >OpenCV</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >MediaPipe</span
+                  >
+                </div>
+                <a
+                  href="https://github.com/pranavputtagunta/vislink"
+                  target="_blank"
+                  class="text-secondary hover:underline text-sm"
+                  >View Project →</a
+                >
+                <a
+                  href="https://devpost.com/software/vislink-visual-link"
+                  target="_blank"
+                  class="text-secondary hover:underline text-sm"
+                  >Devpost →</a
+                >
+              </div>
+
+              <div
+                class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all"
+              >
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-xl font-bold text-heading">PrepNotch</h3>
+                  <span class="text-xs text-secondary">In Development</span>
+                </div>
+                <p class="text-sm text-secondary mb-2">
+                  LLM-Powered Personalized Tutoring Platform
+                </p>
+                <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
+                  <li>
+                    Designing an agentic tutoring system that creates dynamic
+                    learning plans from user goals and documents
+                  </li>
+                  <li>
+                    Built a LangGraph-based multi-agent workflow for lesson
+                    generation, quiz creation, and feedback refinement
+                  </li>
+                  <li>
+                    Implemented RAG and AWS to integrate uploaded textbooks and
+                    syllabi into lessons
+                  </li>
+                  <li>
+                    Engineered tool-using agents with context engineering,
+                    persistent memory, and progress tracking
+                  </li>
+                  <li>
+                    Developed a scalable Flask API using LangChain to automate
+                    lessons, quizzes, and generate personalized user feedback.
+                  </li>
+                  <li>
+                    Created a custom table of contents-based indexing system
+                    which optimized LLM query efficiency for learning materials.
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >LangChain</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >LangGraph</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >RAG</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Cursor</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >AWS</span
+                  >
+                </div>
+                <a
+                  href="https://github.com/pranavputtagunta/prep_notch"
+                  target="_blank"
+                  class="text-secondary hover:underline text-sm"
+                  >View Project →</a
+                >
+              </div>
+
+              <div
+                class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all"
+              >
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-xl font-bold text-heading">OpenLabel</h3>
+                  <span class="text-xs text-secondary"
+                    >1st in Track @ DiamondHacks</span
+                  >
+                </div>
+                <p class="text-sm text-secondary mb-2">
+                  Vision & LLM-Powered Allergy and Diet Recommender
+                </p>
+                <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
+                  <li>
+                    Built a dietary preference agent that evaluates food
+                    packaging through image input and ingredient scanning
+                  </li>
+                  <li>
+                    Built an image-processing pipeline to parse product images
+                    and ingredient labels using Gemini + CV
+                  </li>
+                  <li>
+                    Generated user-specific buying recommendations using LLMs
+                    based on allergies and goals
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Python</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >OpenCV</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Gemini</span
+                  >
+                </div>
+                <a
+                  href="https://github.com/pranavputtagunta/OpenLabel"
+                  target="_blank"
+                  class="text-secondary hover:underline text-sm"
+                  >View Project →</a
+                >
+                <a
+                  href="https://devpost.com/software/openlabel"
+                  target="_blank"
+                  class="text-secondary hover:underline text-sm"
+                  >Devpost →</a
+                >
+              </div>
+
+              <div
+                class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all"
+              >
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-xl font-bold text-heading">Alethiea</h3>
+                  <span class="text-xs text-secondary"
+                    >Berkeley AI Hackathon</span
+                  >
+                </div>
+                <p class="text-sm text-secondary mb-2">
+                  Agentic-Driven Healthcare Management
+                </p>
+                <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
+                  <li>
+                    Developed a personalized pill tracker that offers medication
+                    guidance and autonomous alerts
+                  </li>
+                  <li>
+                    Used OpenCV and Gemini API to detect and classify pills from
+                    images; tracked dosage timelines
+                  </li>
+                  <li>
+                    Designed agent framework to auto-adjust routines and send
+                    alerts or contact physicians as needed
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Python</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Streamlit</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >OpenCV</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Gemini</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Letta</span
+                  >
+                </div>
+                <a
+                  href="https://github.com/pranavputtagunta/aletheia"
+                  target="_blank"
+                  class="text-secondary hover:underline text-sm"
+                  >View Project →</a
+                >
+                <a
+                  href="https://devpost.com/software/aletheia-clarity-in-care"
+                  target="_blank"
+                  class="text-secondary hover:underline text-sm"
+                  >Devpost →</a
+                >
+              </div>
+
+              <div
+                class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all"
+              >
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-xl font-bold text-heading">MentalQuest</h3>
+                  <span class="text-xs text-secondary">4th Place</span>
+                </div>
+                <p class="text-sm text-secondary mb-2">
+                  AI-Powered Mental Health Support Platform
+                </p>
+                <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
+                  <li>
+                    Integrated Google Gemini to provide personalized mental
+                    health support and tailored self-care tasks
+                  </li>
+                  <li>
+                    Developed gamified self-care experience through interactive
+                    daily quests
+                  </li>
+                  <li>
+                    Designed intuitive UI/UX for inclusive and seamless user
+                    experience
+                  </li>
+                  <li>
+                    Architected a full-stack mental health app with responsive
+                    React frontend, a Flask backend, and a MongoDB database.
+                  </li>
+                  <li>
+                    Integrated Gemini API to power AI-driven self-care
+                    recommendations and interactive user progress tracking
+                    features.
+                  </li>
+                  <li>
+                    Delivered a gamified user experience with daily quests,
+                    journaling, awards, and chatbots, securing 4th place.
+                  </li>
+                  <li>
+                    Competed against graduate students and upperclassmen as a
+                    freshman
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >React</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Flask</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >MongoDB</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Python</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >Gemini API</span
+                  >
+                </div>
+                <a
+                  href="https://github.com/pranavputtagunta/mentalquest"
+                  target="_blank"
+                  class="text-secondary hover:underline text-sm"
+                  >View Project →</a
+                >
+              </div>
+
+              <div
+                class="bg-white/5 rounded-lg p-6 hover:transform hover:scale-105 transition-all"
+              >
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-xl font-bold text-heading">LightYear</h3>
+                </div>
+                <p class="text-sm text-secondary mb-2">Space Tourism Website</p>
+                <ul class="mb-4 text-sm list-disc pl-4 space-y-1">
+                  <li>
+                    Designed and developed an interactive space tourism website
+                    for Webmaster 2023
+                  </li>
+                  <li>
+                    Implemented user login functionality and engaging animations
+                  </li>
+                  <li>
+                    Created responsive design with interactive features for
+                    enhanced user experience
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >HTML</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >CSS</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-secondary/20 text-secondary rounded text-xs"
+                    >JavaScript</span
+                  >
+                </div>
+                <a
+                  href="https://lightyear-webmaster.glitch.me/"
+                  target="_blank"
+                  class="text-secondary hover:underline text-sm"
+                  >View Project →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Section (Right) -->
+          <div class="lg:w-5/12">
+            <h2 class="text-3xl font-bold text-heading mb-8">
+              Technical Skills
+            </h2>
+
+            <!-- Languages Section -->
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold text-heading mb-4">Languages</h3>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fab fa-python text-4xl mb-2"></i>
+                  <span class="text-center">Python</span>
+                  <span class="text-xs text-secondary mt-1">Advanced</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-microchip text-4xl mb-2"></i>
+                  <span class="text-center">Assembly</span>
+                  <span class="text-xs text-secondary mt-1">Proficient</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fab fa-java text-4xl mb-2"></i>
+                  <span class="text-center">Java</span>
+                  <span class="text-xs text-secondary mt-1">Advanced</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-code text-4xl mb-2"></i>
+                  <span class="text-center">C / C++</span>
+                  <span class="text-xs text-secondary mt-1">Advanced</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fab fa-js text-4xl mb-2"></i>
+                  <span class="text-center">JavaScript / TypeScript</span>
+                  <span class="text-xs text-secondary mt-1">Proficient</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-database text-4xl mb-2"></i>
+                  <span class="text-center">SQL / NoSQL</span>
+                  <span class="text-xs text-secondary mt-1">Proficient</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-robot text-4xl mb-2"></i>
+                  <span class="text-center">ROS</span>
+                  <span class="text-xs text-secondary mt-1">Proficient</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-linux text-4xl mb-2"></i>
+                  <span class="text-center">Linux</span>
+                  <span class="text-xs text-secondary mt-1">Proficient</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fab fa-git-alt text-4xl mb-2"></i>
+                  <span class="text-center">Git / GitHub</span>
+                  <span class="text-xs text-secondary mt-1">Proficient</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-apple text-4xl mb-2"></i>
+                  <span class="text-center">Swift</span>
+                  <span class="text-xs text-secondary mt-1">Familiar</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-code-branch text-4xl mb-2"></i>
+                  <span class="text-center">HTML / CSS</span>
+                  <span class="text-xs text-secondary mt-1">Proficient</span>
+                </div>
+              </div>
             </div>
 
             <!-- Frameworks & Tools Section -->
             <div class="mb-12">
-                <h3 class="text-xl font-semibold text-heading mb-4">Frameworks & Tools</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-6">
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-server text-4xl mb-2"></i>
-                        <span class="text-center">Flask</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fab fa-react text-4xl mb-2"></i>
-                        <span class="text-center">React</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-code text-4xl mb-2"></i>
-                        <span class="text-center">Node.js</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-brain text-4xl mb-2"></i>
-                        <span class="text-center">TensorFlow</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-fire text-4xl mb-2"></i>
-                        <span class="text-center">PyTorch</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-eye text-4xl mb-2"></i>
-                        <span class="text-center">OpenCV</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-network-wired text-4xl mb-2"></i>
-                        <span class="text-center">FastAPI</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-box text-4xl mb-2"></i>
-                        <span class="text-center">Docker</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-cloud text-4xl mb-2"></i>
-                        <span class="text-center">AWS / GCP</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-search text-4xl mb-2"></i>
-                        <span class="text-center">YOLO</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-microchip text-4xl mb-2"></i>
-                        <span class="text-center">CUDA</span>
-                    </div>
-                    <div class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                        <i class="fas fa-database text-4xl mb-2"></i>
-                        <span class="text-center">PostgreSQL / MongoDB</span>
-                    </div>
+              <h3 class="text-xl font-semibold text-heading mb-4">
+                Frameworks & Tools
+              </h3>
+              <div
+                class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-6"
+              >
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-server text-4xl mb-2"></i>
+                  <span class="text-center">Flask</span>
                 </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fab fa-react text-4xl mb-2"></i>
+                  <span class="text-center">React</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-code text-4xl mb-2"></i>
+                  <span class="text-center">Node.js</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-brain text-4xl mb-2"></i>
+                  <span class="text-center">TensorFlow</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-fire text-4xl mb-2"></i>
+                  <span class="text-center">PyTorch</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-eye text-4xl mb-2"></i>
+                  <span class="text-center">OpenCV</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-network-wired text-4xl mb-2"></i>
+                  <span class="text-center">FastAPI</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-box text-4xl mb-2"></i>
+                  <span class="text-center">Docker</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-cloud text-4xl mb-2"></i>
+                  <span class="text-center">AWS / GCP</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-search text-4xl mb-2"></i>
+                  <span class="text-center">YOLO</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-microchip text-4xl mb-2"></i>
+                  <span class="text-center">CUDA</span>
+                </div>
+                <div
+                  class="flex flex-col items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  <i class="fas fa-database text-4xl mb-2"></i>
+                  <span class="text-center">PostgreSQL / MongoDB</span>
+                </div>
+              </div>
             </div>
 
             <!-- Concepts Section -->
             <div class="mb-12">
-                <h3 class="text-xl font-semibold text-heading mb-4">Concepts & Expertise</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Full-stack Development</span>
-                    </div>
-                    <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">APIs & Microservices</span>
-                    </div>
-                    <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Machine Learning</span>
-                    </div>
-                    <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Computer Vision</span>
-                    </div>
-                    <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Robotics Perception</span>
-                    </div>
-                    <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Motion Planning</span>
-                    </div>
-                    <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Data Pipelines & Distributed Systems</span>
-                    </div>
-                    <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Algorithm Optimization</span>
-                    </div>
-                    <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Cloud Infrastructure & CI/CD</span>
-                    </div>
-                    <div class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
-                        <span class="text-sm">Agile Development</span>
-                    </div>
+              <h3 class="text-xl font-semibold text-heading mb-4">
+                Concepts & Expertise
+              </h3>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div
+                  class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"
+                >
+                  <span class="text-sm">Full-stack Development</span>
                 </div>
-            </div>
+                <div
+                  class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"
+                >
+                  <span class="text-sm">APIs & Microservices</span>
                 </div>
+                <div
+                  class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"
+                >
+                  <span class="text-sm">Machine Learning</span>
+                </div>
+                <div
+                  class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"
+                >
+                  <span class="text-sm">Computer Vision</span>
+                </div>
+                <div
+                  class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"
+                >
+                  <span class="text-sm">Robotics Perception</span>
+                </div>
+                <div
+                  class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"
+                >
+                  <span class="text-sm">Motion Planning</span>
+                </div>
+                <div
+                  class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"
+                >
+                  <span class="text-sm"
+                    >Data Pipelines & Distributed Systems</span
+                  >
+                </div>
+                <div
+                  class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"
+                >
+                  <span class="text-sm">Algorithm Optimization</span>
+                </div>
+                <div
+                  class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"
+                >
+                  <span class="text-sm">Cloud Infrastructure & CI/CD</span>
+                </div>
+                <div
+                  class="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"
+                >
+                  <span class="text-sm">Agile Development</span>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Experiences Tab -->
-<div id="experiences" class="tab-content">
-    <div class="space-y-8">
-
-        <!--Pragma Edge -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+      <!-- Experiences Tab -->
+      <div id="experiences" class="tab-content">
+        <div class="space-y-8">
+          <!-- Yonder Dynamics -->
+          <div
+            class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors"
+          >
             <div class="flex flex-wrap justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-heading">Pragma Edge (IBM Partner Company)</h3>
-                <span class="text-secondary">Oct 2025 - Present</span>
-            </div>
-            <p class="text-lg font-medium mb-2">AI Engineering Intern</p>
-            <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Architected REST APIs for asset management, facilitating communication between IBM Maximo and external services.</li>
-                <li>Integrated IBM Watsonx chatbot into Maximo workflows, enabling natural language querying of asset data.</li>
-                <li>Developing computer vision modules to automate defect analysis, optimizing manufacturing inspection pipelines.</li>
-                <li>Integrating MLOps pipelines in Python (OpenCV, TensorFlow) for scalable enterprise data flows for anomaly detection.</li>
-            </ul>
-            <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">OpenCV</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">TensorFlow</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">IBM Maximo</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">MLOps</span>
-            </div>
-            <a href="https://pragmaedge.com/" target="_blank" class="text-secondary hover:underline text-sm">View company website →</a>
-        </div>
-
-        <!-- Yonder Dynamics -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
-            <div class="flex flex-wrap justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-heading">Yonder Dynamics</h3>
-                <span class="text-secondary">Oct 2024 - Present</span>
+              <h3 class="text-xl font-bold text-heading">Yonder Dynamics</h3>
+              <span class="text-secondary">Oct 2024 - Present</span>
             </div>
             <p class="text-lg font-medium mb-2">Autonomous Systems Developer</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Integrated RTK GPS with Pixhawk, boosting accuracy from 10m to 10cm and eliminating 30% of navigation failures.</li>
-                <li>Designed physics-based simulations using custom URDF models for asynchronous testing of autonomous logic.</li>
-                <li>Engineered robust traversal routines and a loss-of-signal fail-safes, reducing failures by 30% during URC competitions.</li>
-                <li>Managed agile sprint planning in Notion, improving cross-functional team coordination for the autonomous subsystem.</li>
+              <li>
+                Integrated RTK GPS with Pixhawk, boosting accuracy from 10m to
+                10cm and eliminating 30% of navigation failures.
+              </li>
+              <li>
+                Designed physics-based simulations using custom URDF models for
+                asynchronous testing of autonomous logic.
+              </li>
+              <li>
+                Engineered robust traversal routines and a loss-of-signal
+                fail-safes, reducing failures by 30% during URC competitions.
+              </li>
+              <li>
+                Managed agile sprint planning in Notion, improving
+                cross-functional team coordination for the autonomous subsystem.
+              </li>
             </ul>
             <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">ROS</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">RTK GPS</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Vision</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">SolidWorks</span>
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Python</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >ROS</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >RTK GPS</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Vision</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >SolidWorks</span
+              >
             </div>
-            <div class="mb-4">
-                <h4 class="text-lg font-bold text-heading mb-2">System Acceptance Review</h4>
-                <p class="mb-4 text-sm text-secondary">
-                    Watch a demonstration of the rover's capabilities, including waypoint navigation, obstacle avoidance, and return-to-base functionality.
-                </p>
-                <div class="mb-4 flex justify-start">
-                    <!-- Use privacy-enhanced youtube-nocookie domain and provide a fallback link -->
-                    <iframe width="640" height="360"
-                        src="https://www.youtube-nocookie.com/embed/8XUT9da2txI?rel=0"
-                        title="Yonder Dynamics SAR 2025"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        allowfullscreen
-                        class="rounded-lg"
-                    ></iframe>
-                </div>
-                <div class="mb-2 text-sm text-secondary">If the video fails to load due to embed restrictions, <a href="https://www.youtube.com/watch?v=8XUT9da2txI" target="_blank" class="text-secondary hover:underline">open it on YouTube</a>.</div>
-            </div>
-            <a href="https://yonderdynamics.com/" target="_blank" class="text-secondary hover:underline text-sm">See what we're up to →</a>
-        </div>
 
-        <!-- UCSD Advanced Robotics Control Lab -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+            <div class="mb-4">
+              <h4 class="text-lg font-bold text-heading mb-2">
+                Physics-based Simulation
+              </h4>
+              <p class="mb-4 text-sm text-secondary">
+                This is the physics-based simulation I developed. In the video,
+                I am showcasing driving the rover manually in a simulated desert
+                environment. I'm also showcasing the visualized depthmap from a
+                virtual depth camera on the rover for obstacle avoidance.
+              </p>
+              <div class="mb-4 flex justify-start">
+                <video
+                  src="assets/videos/simulation_demo.mp4"
+                  controls
+                  title="Physics-based Simulation Demo"
+                  class="rounded-lg"
+                  style="width: 640px; height: 360px"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <h4 class="text-lg font-bold text-heading mb-2">
+                System Acceptance Review
+              </h4>
+              <p class="mb-4 text-sm text-secondary">
+                Watch a demonstration of the rover's capabilities, including
+                waypoint navigation, obstacle avoidance, and return-to-base
+                functionality.
+              </p>
+              <div class="mb-4 flex justify-start">
+                <!-- Use privacy-enhanced youtube-nocookie domain and provide a fallback link -->
+                <iframe
+                  width="640"
+                  height="360"
+                  src="https://www.youtube-nocookie.com/embed/8XUT9da2txI?rel=0"
+                  title="Yonder Dynamics SAR 2025"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen
+                  class="rounded-lg"
+                ></iframe>
+              </div>
+              <div class="mb-2 text-sm text-secondary">
+                If the video fails to load due to embed restrictions,
+                <a
+                  href="https://www.youtube.com/watch?v=8XUT9da2txI"
+                  target="_blank"
+                  class="text-secondary hover:underline"
+                  >open it on YouTube</a
+                >.
+              </div>
+            </div>
+
+            <a
+              href="https://yonderdynamics.com/"
+              target="_blank"
+              class="text-secondary hover:underline text-sm"
+              >See what we're up to →</a
+            >
+          </div>
+
+          <!--Pragma Edge -->
+          <div
+            class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors"
+          >
             <div class="flex flex-wrap justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-heading">UCSD Advanced Robotics Control Lab</h3>
-                <span class="text-secondary">Mar 2025 - Sep 2025</span>
+              <h3 class="text-xl font-bold text-heading">
+                Pragma Edge (IBM Partner Company)
+              </h3>
+              <span class="text-secondary">Oct 2025 - Present</span>
+            </div>
+            <p class="text-lg font-medium mb-2">AI Engineering Intern</p>
+            <ul class="list-disc pl-5 mb-4 space-y-2">
+              <li>
+                Architected REST APIs for asset management, facilitating
+                communication between IBM Maximo and external services.
+              </li>
+              <li>
+                Integrated IBM Watsonx chatbot into Maximo workflows, enabling
+                natural language querying of asset data.
+              </li>
+              <li>
+                Developing computer vision modules to automate defect analysis,
+                optimizing manufacturing inspection pipelines.
+              </li>
+              <li>
+                Integrating MLOps pipelines in Python (OpenCV, TensorFlow) for
+                scalable enterprise data flows for anomaly detection.
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Python</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >OpenCV</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >TensorFlow</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >IBM Maximo</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >MLOps</span
+              >
+            </div>
+            <a
+              href="https://pragmaedge.com/"
+              target="_blank"
+              class="text-secondary hover:underline text-sm"
+              >View company website →</a
+            >
+          </div>
+
+          <!-- UCSD Advanced Robotics Control Lab -->
+          <div
+            class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors"
+          >
+            <div class="flex flex-wrap justify-between items-start mb-4">
+              <h3 class="text-xl font-bold text-heading">
+                UCSD Advanced Robotics Control Lab
+              </h3>
+              <span class="text-secondary">Mar 2025 - Sep 2025</span>
             </div>
             <p class="text-lg font-medium mb-2">Research Assistant</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Built motion planning algorithms achieving 200% faster runtime, 10% gauze savings, and 100% wound coverage.</li>
-                <li>Reconstructed 3D meshes from RGB-D scans with Open3D + SDFs, reaching 80% accuracy for field medical robotics.</li>
-                <li>Implemented MCTS + heuristics, cutting compute by 30% and enabling near real-time robotic gauze tape application.</li>
-                <li>Integrated algorithms into humanoid prototypes, collaborating with researchers on clinical feasibility testing.</li>
+              <li>
+                Built motion planning algorithms achieving 200% faster runtime,
+                10% gauze savings, and 100% wound coverage.
+              </li>
+              <li>
+                Reconstructed 3D meshes from RGB-D scans with Open3D + SDFs,
+                reaching 80% accuracy for field medical robotics.
+              </li>
+              <li>
+                Implemented MCTS + heuristics, cutting compute by 30% and
+                enabling near real-time robotic gauze tape application.
+              </li>
+              <li>
+                Integrated algorithms into humanoid prototypes, collaborating
+                with researchers on clinical feasibility testing.
+              </li>
             </ul>
             <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Point Clouds</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Path Planning</span>
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Python</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Point Clouds</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Path Planning</span
+              >
             </div>
-            <a href="https://ucsdarclab.com/" target="_blank" class="text-secondary hover:underline text-sm">View our work →</a>
-        </div>
+            <a
+              href="https://ucsdarclab.com/"
+              target="_blank"
+              class="text-secondary hover:underline text-sm"
+              >View our work →</a
+            >
+          </div>
 
-        <!-- STEM Robotics Mentor -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+          <!-- STEM Robotics Mentor -->
+          <div
+            class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors"
+          >
             <div class="flex flex-wrap justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-heading">FIRST/VEX Robotics Instructor</h3>
-                <span class="text-secondary">Jun 2025 - Sep 2025</span>
+              <h3 class="text-xl font-bold text-heading">
+                FIRST/VEX Robotics Instructor
+              </h3>
+              <span class="text-secondary">Jun 2025 - Sep 2025</span>
             </div>
             <p class="text-lg font-medium mb-2">Instructor & Coach</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Coached 28 students across 4 teams, teaching CAD, Java, Python, Git workflows, and Computer Vision principles.</li>
-                <li>Guided FRC team to prototype a swerve robot in 1 week and deploy vision-based autonomous navigation in 2 weeks.</li>
-                <li>Improved technical collaboration and design reviews by organizing PDRs, debugging sessions, and Git workflows.</li>
+              <li>
+                Coached 28 students across 4 teams, teaching CAD, Java, Python,
+                Git workflows, and Computer Vision principles.
+              </li>
+              <li>
+                Guided FRC team to prototype a swerve robot in 1 week and deploy
+                vision-based autonomous navigation in 2 weeks.
+              </li>
+              <li>
+                Improved technical collaboration and design reviews by
+                organizing PDRs, debugging sessions, and Git workflows.
+              </li>
             </ul>
             <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Onshape</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Vision</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Java</span>
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Python</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Onshape</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Vision</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Java</span
+              >
             </div>
-            <a href="https://www.wheelhouserobotics.com/" target="_blank" class="text-secondary hover:underline text-sm">Company website →</a>
-        </div>
+            <a
+              href="https://www.wheelhouserobotics.com/"
+              target="_blank"
+              class="text-secondary hover:underline text-sm"
+              >Company website →</a
+            >
+          </div>
 
-        <!-- Triton Racing -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+          <!-- Triton Racing -->
+          <div
+            class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors"
+          >
             <div class="flex flex-wrap justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-heading">Triton Racing</h3>
-                <span class="text-secondary">Oct 2024 - Jun 2025</span>
+              <h3 class="text-xl font-bold text-heading">Triton Racing</h3>
+              <span class="text-secondary">Oct 2024 - Jun 2025</span>
             </div>
             <p class="text-lg font-medium mb-2">Electrical Subteam Member</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Collaborated on the electrical system design for Triton Racing’s Formula SAE electric vehicle, focusing on performance, safety, and reliability.</li>
-                <li>Designed and fabricated a Tractive System Status Indicator (TSSI) light mount using SolidWorks for CAD modeling and 3D printing for rapid prototyping, ensuring compliance with FSAE safety regulations.</li>
-                <li>Learned and applied basic PCB design in Altium, contributing to subsystem circuit layouts and gaining hands-on exposure to embedded electrical hardware.</li>
-                <li>Conducted Finite Element Analysis (FEA) in SolidWorks to validate structural integrity of mounts and components under simulated race conditions.</li>
-                <li>Utilized Gantt charts to manage project timelines, track milestones, and ensure alignment across the electrical subteam’s deliverables.</li>
-                <li>Gained practical experience in motorsport engineering, working in a fast-paced, interdisciplinary team to design and iterate components under real-world performance constraints.</li>
+              <li>
+                Collaborated on the electrical system design for Triton Racing’s
+                Formula SAE electric vehicle, focusing on performance, safety,
+                and reliability.
+              </li>
+              <li>
+                Designed and fabricated a Tractive System Status Indicator
+                (TSSI) light mount using SolidWorks for CAD modeling and 3D
+                printing for rapid prototyping, ensuring compliance with FSAE
+                safety regulations.
+              </li>
+              <li>
+                Learned and applied basic PCB design in Altium, contributing to
+                subsystem circuit layouts and gaining hands-on exposure to
+                embedded electrical hardware.
+              </li>
+              <li>
+                Conducted Finite Element Analysis (FEA) in SolidWorks to
+                validate structural integrity of mounts and components under
+                simulated race conditions.
+              </li>
+              <li>
+                Utilized Gantt charts to manage project timelines, track
+                milestones, and ensure alignment across the electrical subteam’s
+                deliverables.
+              </li>
+              <li>
+                Gained practical experience in motorsport engineering, working
+                in a fast-paced, interdisciplinary team to design and iterate
+                components under real-world performance constraints.
+              </li>
             </ul>
             <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Onshape</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Vision</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Java</span>
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Python</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Onshape</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Vision</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Java</span
+              >
             </div>
-            <a href="https://sae.eng.ucsd.edu/" target="_blank" class="text-secondary hover:underline text-sm">See what we're up to →</a>
-        </div>
+            <a
+              href="https://sae.eng.ucsd.edu/"
+              target="_blank"
+              class="text-secondary hover:underline text-sm"
+              >See what we're up to →</a
+            >
+          </div>
 
-        <!-- Brains4Drones -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+          <!-- Brains4Drones -->
+          <div
+            class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors"
+          >
             <div class="flex flex-wrap justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-heading">Brains4Drones</h3>
-                <span class="text-secondary">Mar 2022 - Dec 2024</span>
+              <h3 class="text-xl font-bold text-heading">Brains4Drones</h3>
+              <span class="text-secondary">Mar 2022 - Dec 2024</span>
             </div>
             <p class="text-lg font-medium mb-2">Software Engineering Intern</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Led development of ``PreCheck'' LiDAR tool, cutting drone mission failures by 60% with terrain modeling and analysis.</li>
-                <li>Built TensorFlow crack detection pipelines, automating utility inspections and reducing manual review time by 50%.</li>
-                <li>Designed GPU CUDA pipelines with KNN, increasing point-cloud obstacle detection speed for safer autonomous flight.</li>
-                <li>Attracted 2 enterprise clients by showing PreCheck's simulation capabilities and REST API-driven planning features.</li>
+              <li>
+                Led development of ``PreCheck'' LiDAR tool, cutting drone
+                mission failures by 60% with terrain modeling and analysis.
+              </li>
+              <li>
+                Built TensorFlow crack detection pipelines, automating utility
+                inspections and reducing manual review time by 50%.
+              </li>
+              <li>
+                Designed GPU CUDA pipelines with KNN, increasing point-cloud
+                obstacle detection speed for safer autonomous flight.
+              </li>
+              <li>
+                Attracted 2 enterprise clients by showing PreCheck's simulation
+                capabilities and REST API-driven planning features.
+              </li>
             </ul>
             <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">APIs</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Open3D</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">OpenCV</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">YOLO</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Point Clouds</span>
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Python</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >APIs</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Open3D</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >OpenCV</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >YOLO</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Point Clouds</span
+              >
             </div>
             <div class="mb-4">
-                <h4 class="text-lg font-bold text-heading mb-2">PreCheck Demo Video</h4>
-                <p class="mb-4 text-sm text-secondary">
-                    Watch a demonstration of the PreCheck LiDAR-driven drone mission planning tool in action, showcasing automated flight path generation and obstacle avoidance for power line inspections.
-                </p>
-                <div class="mb-4 flex justify-start">
-                    <video 
-                        src="https://brains4drones.com/videos/SeeMore-PreCheck-Draft8-crf30.mp4" 
-                        controls 
-                        title="PreCheck Demo Video"
-                        class="rounded-lg"
-                        style="width: 640px; height: 360px;"
-                    ></video>
-                </div>
+              <h4 class="text-lg font-bold text-heading mb-2">
+                PreCheck Demo Video
+              </h4>
+              <p class="mb-4 text-sm text-secondary">
+                Watch a demonstration of the PreCheck LiDAR-driven drone mission
+                planning tool in action, showcasing automated flight path
+                generation and obstacle avoidance for power line inspections.
+              </p>
+              <div class="mb-4 flex justify-start">
+                <video
+                  src="https://brains4drones.com/videos/SeeMore-PreCheck-Draft8-crf30.mp4"
+                  controls
+                  title="PreCheck Demo Video"
+                  class="rounded-lg"
+                  style="width: 640px; height: 360px"
+                ></video>
+              </div>
             </div>
-            <a href="https://brains4drones.com/" target="_blank" class="text-secondary hover:underline text-sm">View company website →</a>
-        </div>
+            <a
+              href="https://brains4drones.com/"
+              target="_blank"
+              class="text-secondary hover:underline text-sm"
+              >View company website →</a
+            >
+          </div>
 
-        <!-- FIRST Robotics Challenge -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+          <!-- FIRST Robotics Challenge -->
+          <div
+            class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors"
+          >
             <div class="flex flex-wrap justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-heading">FIRST Robotics Challenge (Team 9088)</h3>
-                <span class="text-secondary">Jun 2022 - May 2024</span>
+              <h3 class="text-xl font-bold text-heading">
+                FIRST Robotics Challenge (Team 9088)
+              </h3>
+              <span class="text-secondary">Jun 2022 - May 2024</span>
             </div>
-            <p class="text-lg font-medium mb-2">Software Lead/Team Co-Founder</p>
+            <p class="text-lg font-medium mb-2">
+              Software Lead/Team Co-Founder
+            </p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Led the team to state-level competition, developing innovative robotics control systems</li>
-                <li>Implemented swerve drive mechanism with PathPlanner and Limelight for precision control</li>
-                <li>Developed command-based architecture for modular robot subsystem control</li>
-                <li>Collaborated across teams for seamless system integration</li>
-                <li>Engaged in STEM outreach and mentoring initiatives</li>
+              <li>
+                Led the team to state-level competition, developing innovative
+                robotics control systems
+              </li>
+              <li>
+                Implemented swerve drive mechanism with PathPlanner and
+                Limelight for precision control
+              </li>
+              <li>
+                Developed command-based architecture for modular robot subsystem
+                control
+              </li>
+              <li>Collaborated across teams for seamless system integration</li>
+              <li>Engaged in STEM outreach and mentoring initiatives</li>
             </ul>
             <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Java</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">SolidWorks</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Vision</span>
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Java</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >SolidWorks</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Vision</span
+              >
             </div>
-            <a href="https://frc9088.weebly.com/" target="_blank" class="text-secondary hover:underline text-sm">Team website →</a>
-        </div>
+            <a
+              href="https://frc9088.weebly.com/"
+              target="_blank"
+              class="text-secondary hover:underline text-sm"
+              >Team website →</a
+            >
+          </div>
 
-        <!-- NASA Highschool Aerospace Scholars -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+          <!-- NASA Highschool Aerospace Scholars -->
+          <div
+            class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors"
+          >
             <div class="flex flex-wrap justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-heading">NASA Highschool Aerospace Scholars</h3>
-                <span class="text-secondary">November 2022 – June 2023</span>
+              <h3 class="text-xl font-bold text-heading">
+                NASA Highschool Aerospace Scholars
+              </h3>
+              <span class="text-secondary">November 2022 – June 2023</span>
             </div>
-            <p class="text-lg font-medium mb-2">Pressure and Temperature Mitigation Subtopic Manager</p>
+            <p class="text-lg font-medium mb-2">
+              Pressure and Temperature Mitigation Subtopic Manager
+            </p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Applied systems engineering principles to design and develop a sustainable lunar habitat</li>
-                <li>Led research and implementation of RHUs for thermal regulation, PCAs for atmospheric control</li>
-                <li>Collaborated with multidisciplinary team for habitat subsystem integration</li>
-                <li>Presented engineering solutions to NASA professionals</li>
+              <li>
+                Applied systems engineering principles to design and develop a
+                sustainable lunar habitat
+              </li>
+              <li>
+                Led research and implementation of RHUs for thermal regulation,
+                PCAs for atmospheric control
+              </li>
+              <li>
+                Collaborated with multidisciplinary team for habitat subsystem
+                integration
+              </li>
+              <li>Presented engineering solutions to NASA professionals</li>
             </ul>
-        </div>
+          </div>
 
-        <!-- FIRST Tech Challenge -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+          <!-- FIRST Tech Challenge -->
+          <div
+            class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors"
+          >
             <div class="flex flex-wrap justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-heading">FIRST Tech Challenge</h3>
-                <span class="text-secondary">October 2018 – May 2022</span>
+              <h3 class="text-xl font-bold text-heading">
+                FIRST Tech Challenge
+              </h3>
+              <span class="text-secondary">October 2018 – May 2022</span>
             </div>
-            <p class="text-lg font-medium mb-2">Team Founder, Software Lead (RoboFalcons 14626)</p>
+            <p class="text-lg font-medium mb-2">
+              Team Founder, Software Lead (RoboFalcons 14626)
+            </p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Founded and led team to regional championships, overseeing strategy and development</li>
-                <li>Developed advanced control systems using Java for holonomic drive and computer vision</li>
-                <li>Designed and 3D-printed custom parts using Fusion 360</li>
-                <li>Led STEM demonstrations and secured sponsorships from industry leaders</li>
+              <li>
+                Founded and led team to regional championships, overseeing
+                strategy and development
+              </li>
+              <li>
+                Developed advanced control systems using Java for holonomic
+                drive and computer vision
+              </li>
+              <li>Designed and 3D-printed custom parts using Fusion 360</li>
+              <li>
+                Led STEM demonstrations and secured sponsorships from industry
+                leaders
+              </li>
             </ul>
             <div class="flex flex-wrap gap-2">
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Java</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Fusion360</span>
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Java</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Python</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Fusion360</span
+              >
             </div>
-        </div>
+          </div>
 
-        <!-- UTD Quality of Life Machine Learning Workshop -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+          <!-- UTD Quality of Life Machine Learning Workshop -->
+          <div
+            class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors"
+          >
             <div class="flex flex-wrap justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-heading">UTD Quality of Life Machine Learning Workshop</h3>
-                <span class="text-secondary">June 2023 – July 2023</span>
+              <h3 class="text-xl font-bold text-heading">
+                UTD Quality of Life Machine Learning Workshop
+              </h3>
+              <span class="text-secondary">June 2023 – July 2023</span>
             </div>
             <p class="text-lg font-medium mb-2">Participant</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Developed deep learning model for lung cancer X-ray classification</li>
-                <li>Applied data preprocessing and feature extraction techniques</li>
-                <li>Collaborated on medical imaging dataset analysis</li>
+              <li>
+                Developed deep learning model for lung cancer X-ray
+                classification
+              </li>
+              <li>
+                Applied data preprocessing and feature extraction techniques
+              </li>
+              <li>Collaborated on medical imaging dataset analysis</li>
             </ul>
             <div class="flex flex-wrap gap-2">
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">TensorFlow</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">OpenCV</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Python</span>
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >TensorFlow</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >OpenCV</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Python</span
+              >
             </div>
-        </div>
+          </div>
 
-        <!-- Taekwondo -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+          <!-- Taekwondo -->
+          <div
+            class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors"
+          >
             <div class="flex flex-wrap justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-heading">Taekwondo</h3>
-                <span class="text-secondary">2012 – Present</span>
+              <h3 class="text-xl font-bold text-heading">Taekwondo</h3>
+              <span class="text-secondary">2012 – Present</span>
             </div>
             <p class="text-lg font-medium mb-2">3rd Degree Black Belt</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Earned gold medals in multiple Taekwondo America national tournaments</li>
-                <li>Represented UCSD at World Taekwondo UC Irvine PacWest tournament</li>
-                <li>Trained and mentored newer students in sparring techniques</li>
-                <li>Practiced across multiple studios nationwide</li>
+              <li>
+                Earned gold medals in multiple Taekwondo America national
+                tournaments
+              </li>
+              <li>
+                Represented UCSD at World Taekwondo UC Irvine PacWest tournament
+              </li>
+              <li>
+                Trained and mentored newer students in sparring techniques
+              </li>
+              <li>Practiced across multiple studios nationwide</li>
             </ul>
-        </div>
+          </div>
 
-        <!-- Technology Student Association -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors">
+          <!-- Technology Student Association -->
+          <div
+            class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors"
+          >
             <div class="flex flex-wrap justify-between items-start mb-4">
-                <h3 class="text-xl font-bold text-heading">Technology Student Association</h3>
-                <span class="text-secondary">Aug 2022 – May 2024</span>
+              <h3 class="text-xl font-bold text-heading">
+                Technology Student Association
+              </h3>
+              <span class="text-secondary">Aug 2022 – May 2024</span>
             </div>
             <p class="text-lg font-medium mb-2">Team Lead, Competitor</p>
             <ul class="list-disc pl-5 mb-4 space-y-2">
-                <li>Led team to develop LightYear web application, advancing to state-level</li>
-                <li>Designed portable radiation detection system using Fusion 360</li>
-                <li>Solved engineering challenges under time constraints</li>
+              <li>
+                Led team to develop LightYear web application, advancing to
+                state-level
+              </li>
+              <li>
+                Designed portable radiation detection system using Fusion 360
+              </li>
+              <li>Solved engineering challenges under time constraints</li>
             </ul>
             <div class="flex flex-wrap gap-2">
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Web Development</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Fusion360</span>
-                <span class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm">Engineering Design</span>
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Web Development</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Fusion360</span
+              >
+              <span
+                class="px-2 py-1 bg-secondary/20 text-secondary rounded text-sm"
+                >Engineering Design</span
+              >
             </div>
+          </div>
         </div>
-            </div>
-        </div>
+      </div>
 
-        <!-- Education Tab -->
-        <div id="education" class="tab-content">
-            <div class="bg-white/5 rounded-lg p-8 mb-8">
-                <h2 class="text-3xl font-bold text-heading mb-6">University of California San Diego</h2>
-                <p class="text-xl mb-8">Bachelor of Science in Computer Science, Minor in Business</p>
-                
-                <h3 class="text-2xl font-bold text-heading mb-4">Core Coursework</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Course Card Template -->
-                    <div class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
-                        <h4 class="font-bold text-heading mb-1">CSE 11</h4>
-                        <p class="mb-2">Introduction to Programming and Computational Problem-Solving: Accelerated Pace</p>
-                        <a href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2011.%20Introduction%20to%20Programming%20and%20Computational%20Problem%2DSolving%3A%20Accelerated%20Pace%20(4)" class="text-secondary hover:underline text-sm">Course Details →</a>
-                    </div>
-                    <!-- Add more course cards -->
-                    <div class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
-                        <h4 class="font-bold text-heading mb-1">CSE 29</h4>
-                        <p class="mb-2">Systems Programming and Software Tools</p>
-                        <a href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2012.%20Basic%20Data%20Structures%20and%20Object%2DOriented%20Design%20(4)" class="text-secondary hover:underline text-sm">Course Details →</a>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
-                        <h4 class="font-bold text-heading mb-1">CSE 12</h4>
-                        <p class="mb-2">Basic Data Structures and Object-Oriented Design</p>
-                        <a href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2011.%20Introduction%20to%20Programming%20and%20Computational%20Problem%2DSolving%3A%20Accelerated%20Pace%20(4)" class="text-secondary hover:underline text-sm">Course Details →</a>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
-                        <h4 class="font-bold text-heading mb-1">CSE 30</h4>
-                        <p class="mb-2">Computer Organization</p>
-                        <a href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2030.%20Computer%20Organization%20(4)" class="text-secondary hover:underline text-sm">Course Details →</a>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
-                        <h4 class="font-bold text-heading mb-1">CSE 20</h4>
-                        <p class="mb-2">Discrete Mathematics</p>
-                        <a href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2020.%20Discrete%20Mathematics%20(4)" class="text-secondary hover:underline text-sm">Course Details →</a>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
-                        <h4 class="font-bold text-heading mb-1">CSE 21</h4>
-                        <p class="mb-2">Mathematics for Algorithms and Systems</p>
-                        <a href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2021.%20Mathematics%20for%20Algorithms%20and%20Systems%20(4)" class="text-secondary hover:underline text-sm">Course Details →</a>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
-                        <h4 class="font-bold text-heading mb-1">MATH 20C</h4>
-                        <p class="mb-2">Calculus and Analytic Geometry for Science and Engineering</p>
-                        <a href="https://catalog.ucsd.edu/courses/MATH.html#:~:text=MATH%2020C.%20Calculus%20and%20Analytic%20Geometry%20for%20Science%20and%20Engineering%20(4)" class="text-secondary hover:underline text-sm">Course Details →</a>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
-                        <h4 class="font-bold text-heading mb-1">MATH 18</h4>
-                        <p class="mb-2">Linear Algebra</p>
-                        <a href="https://catalog.ucsd.edu/courses/MATH.html#:~:text=MATH%2018.%20Linear%20Algebra%20(4)" class="text-secondary hover:underline text-sm">Course Details →</a>
-                    </div>
-                </div>
-                <div class="my-8"></div>
-                <h3 class="text-2xl font-bold text-heading mb-4">Business Coursework</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
-                        <h4 class="font-bold text-heading mb-1">MGT 16</h4>
-                        <p class="mb-2">Personal Ethics at Work</p>
-                        <a href="https://catalog.ucsd.edu/courses/MGT.html#:~:text=MGT%2016.%20Personal%20Ethics%20at%20Work%20(4)" class="text-secondary hover:underline text-sm">Course Details →</a>
-                    </div>
-                    <div class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
-                        <h4 class="font-bold text-heading mb-1">MGT 45</h4>
-                        <p class="mb-2">Principles of Accounting</p>
-                        <a href="https://catalog.ucsd.edu/courses/MGT.html#:~:text=MGT%2045.%20Principles%20of%20Accounting%20(4)" class="text-secondary hover:underline text-sm">Course Details →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <!-- Education Tab -->
+      <div id="education" class="tab-content">
+        <div class="bg-white/5 rounded-lg p-8 mb-8">
+          <h2 class="text-3xl font-bold text-heading mb-6">
+            University of California San Diego
+          </h2>
+          <p class="text-xl mb-8">
+            Bachelor of Science in Computer Science, Minor in Business
+          </p>
 
-        <!-- Resume Tab -->
-        <div id="resume" class="tab-content">
-            <div class="max-w-5xl mx-auto">
-                <div class="bg-white/5 rounded-lg p-4 md:p-6 mb-6">
-                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <h2 class="text-3xl font-bold text-heading">Resume</h2>
-                        <a href="assets/docs/pranav_technical_resume.pdf" target="_blank" 
-                           class="w-full md:w-auto px-4 py-2 bg-secondary/20 text-secondary rounded hover:bg-secondary/30 transition-colors text-center">
-                            <i class="fas fa-download mr-2"></i>Download PDF
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-white/5 rounded-lg overflow-hidden relative" style="height: calc(100vh - 200px);">
-                    <div class="absolute inset-0">
-                        <iframe
-                            src="assets/docs/pranav_technical_resume.pdf#toolbar=0"
-                            class="w-full h-full"
-                            style="border: none;"
-                        >
-                        </iframe>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center bg-primary/90 pdf-fallback hidden">
-                        <div class="text-center p-6">
-                            <p class="mb-4 text-lg">PDF preview not available on your device.</p>
-                            <a href="assets/docs/pranav_tech_resume.pdf" target="_blank" 
-                               class="inline-block px-6 py-3 bg-secondary/20 text-secondary rounded-lg hover:bg-secondary/30 transition-colors">
-                                <i class="fas fa-download mr-2"></i>Download Resume
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <script>
-                    // Check if PDF preview is supported
-                    document.querySelector('iframe').onerror = function() {
-                        document.querySelector('.pdf-fallback').classList.remove('hidden');
-                    };
-                </script>
+          <h3 class="text-2xl font-bold text-heading mb-4">Core Coursework</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Course Card Template -->
+            <div
+              class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors"
+            >
+              <h4 class="font-bold text-heading mb-1">CSE 11</h4>
+              <p class="mb-2">
+                Introduction to Programming and Computational Problem-Solving:
+                Accelerated Pace
+              </p>
+              <a
+                href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2011.%20Introduction%20to%20Programming%20and%20Computational%20Problem%2DSolving%3A%20Accelerated%20Pace%20(4)"
+                class="text-secondary hover:underline text-sm"
+                >Course Details →</a
+              >
             </div>
+            <!-- Add more course cards -->
+            <div
+              class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors"
+            >
+              <h4 class="font-bold text-heading mb-1">CSE 29</h4>
+              <p class="mb-2">Systems Programming and Software Tools</p>
+              <a
+                href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2012.%20Basic%20Data%20Structures%20and%20Object%2DOriented%20Design%20(4)"
+                class="text-secondary hover:underline text-sm"
+                >Course Details →</a
+              >
+            </div>
+            <div
+              class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors"
+            >
+              <h4 class="font-bold text-heading mb-1">CSE 12</h4>
+              <p class="mb-2">
+                Basic Data Structures and Object-Oriented Design
+              </p>
+              <a
+                href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2011.%20Introduction%20to%20Programming%20and%20Computational%20Problem%2DSolving%3A%20Accelerated%20Pace%20(4)"
+                class="text-secondary hover:underline text-sm"
+                >Course Details →</a
+              >
+            </div>
+            <div
+              class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors"
+            >
+              <h4 class="font-bold text-heading mb-1">CSE 30</h4>
+              <p class="mb-2">Computer Organization</p>
+              <a
+                href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2030.%20Computer%20Organization%20(4)"
+                class="text-secondary hover:underline text-sm"
+                >Course Details →</a
+              >
+            </div>
+            <div
+              class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors"
+            >
+              <h4 class="font-bold text-heading mb-1">CSE 20</h4>
+              <p class="mb-2">Discrete Mathematics</p>
+              <a
+                href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2020.%20Discrete%20Mathematics%20(4)"
+                class="text-secondary hover:underline text-sm"
+                >Course Details →</a
+              >
+            </div>
+            <div
+              class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors"
+            >
+              <h4 class="font-bold text-heading mb-1">CSE 21</h4>
+              <p class="mb-2">Mathematics for Algorithms and Systems</p>
+              <a
+                href="https://catalog.ucsd.edu/courses/CSE.html#:~:text=CSE%2021.%20Mathematics%20for%20Algorithms%20and%20Systems%20(4)"
+                class="text-secondary hover:underline text-sm"
+                >Course Details →</a
+              >
+            </div>
+            <div
+              class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors"
+            >
+              <h4 class="font-bold text-heading mb-1">MATH 20C</h4>
+              <p class="mb-2">
+                Calculus and Analytic Geometry for Science and Engineering
+              </p>
+              <a
+                href="https://catalog.ucsd.edu/courses/MATH.html#:~:text=MATH%2020C.%20Calculus%20and%20Analytic%20Geometry%20for%20Science%20and%20Engineering%20(4)"
+                class="text-secondary hover:underline text-sm"
+                >Course Details →</a
+              >
+            </div>
+            <div
+              class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors"
+            >
+              <h4 class="font-bold text-heading mb-1">MATH 18</h4>
+              <p class="mb-2">Linear Algebra</p>
+              <a
+                href="https://catalog.ucsd.edu/courses/MATH.html#:~:text=MATH%2018.%20Linear%20Algebra%20(4)"
+                class="text-secondary hover:underline text-sm"
+                >Course Details →</a
+              >
+            </div>
+          </div>
+          <div class="my-8"></div>
+          <h3 class="text-2xl font-bold text-heading mb-4">
+            Business Coursework
+          </h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div
+              class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors"
+            >
+              <h4 class="font-bold text-heading mb-1">MGT 16</h4>
+              <p class="mb-2">Personal Ethics at Work</p>
+              <a
+                href="https://catalog.ucsd.edu/courses/MGT.html#:~:text=MGT%2016.%20Personal%20Ethics%20at%20Work%20(4)"
+                class="text-secondary hover:underline text-sm"
+                >Course Details →</a
+              >
+            </div>
+            <div
+              class="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors"
+            >
+              <h4 class="font-bold text-heading mb-1">MGT 45</h4>
+              <p class="mb-2">Principles of Accounting</p>
+              <a
+                href="https://catalog.ucsd.edu/courses/MGT.html#:~:text=MGT%2045.%20Principles%20of%20Accounting%20(4)"
+                class="text-secondary hover:underline text-sm"
+                >Course Details →</a
+              >
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Resume Tab -->
+      <div id="resume" class="tab-content">
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-white/5 rounded-lg p-4 md:p-6 mb-6">
+            <div
+              class="flex flex-col md:flex-row justify-between items-center gap-4"
+            >
+              <h2 class="text-3xl font-bold text-heading">Resume</h2>
+              <a
+                href="assets/docs/pranav_technical_resume.pdf"
+                target="_blank"
+                class="w-full md:w-auto px-4 py-2 bg-secondary/20 text-secondary rounded hover:bg-secondary/30 transition-colors text-center"
+              >
+                <i class="fas fa-download mr-2"></i>Download PDF
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white/5 rounded-lg overflow-hidden relative"
+            style="height: calc(100vh - 200px)"
+          >
+            <div class="absolute inset-0">
+              <iframe
+                src="assets/docs/pranav_technical_resume.pdf#toolbar=0"
+                class="w-full h-full"
+                style="border: none"
+              >
+              </iframe>
+            </div>
+            <div
+              class="absolute inset-0 flex items-center justify-center bg-primary/90 pdf-fallback hidden"
+            >
+              <div class="text-center p-6">
+                <p class="mb-4 text-lg">
+                  PDF preview not available on your device.
+                </p>
+                <a
+                  href="assets/docs/pranav_tech_resume.pdf"
+                  target="_blank"
+                  class="inline-block px-6 py-3 bg-secondary/20 text-secondary rounded-lg hover:bg-secondary/30 transition-colors"
+                >
+                  <i class="fas fa-download mr-2"></i>Download Resume
+                </a>
+              </div>
+            </div>
+          </div>
+          <script>
+            // Check if PDF preview is supported
+            document.querySelector("iframe").onerror = function () {
+              document
+                .querySelector(".pdf-fallback")
+                .classList.remove("hidden");
+            };
+          </script>
+        </div>
+      </div>
     </main>
 
     <script>
-        function showTab(tabId) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Show selected tab
-            document.getElementById(tabId).classList.add('active');
-            
-            // Update URL without page reload
-            history.pushState({}, '', `#${tabId}`);
-            
-            // Close mobile menu when a tab is selected
-            if (window.innerWidth < 768) {
-                document.getElementById('nav-links').classList.add('hidden');
-            }
+      function showTab(tabId) {
+        // Hide all tabs
+        document.querySelectorAll(".tab-content").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Show selected tab
+        document.getElementById(tabId).classList.add("active");
+
+        // Update URL without page reload
+        history.pushState({}, "", `#${tabId}`);
+
+        // Close mobile menu when a tab is selected
+        if (window.innerWidth < 768) {
+          document.getElementById("nav-links").classList.add("hidden");
         }
+      }
 
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('hidden');
+      function toggleMobileMenu() {
+        const navLinks = document.getElementById("nav-links");
+        navLinks.classList.toggle("hidden");
+      }
+
+      // Close mobile menu when screen is resized above mobile breakpoint
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+          document.getElementById("nav-links").classList.remove("hidden");
         }
+      });
 
-        // Close mobile menu when screen is resized above mobile breakpoint
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
-                document.getElementById('nav-links').classList.remove('hidden');
-            }
-        });
+      // Immediately hide all tabs except home when script loads
+      document.querySelectorAll(".tab-content").forEach((tab) => {
+        tab.classList.remove("active");
+      });
+      const initialHash = window.location.hash.slice(1) || "home";
+      document.getElementById(initialHash).classList.add("active");
 
-        // Immediately hide all tabs except home when script loads
-        document.querySelectorAll('.tab-content').forEach(tab => {
-            tab.classList.remove('active');
-        });
-        const initialHash = window.location.hash.slice(1) || 'home';
-        document.getElementById(initialHash).classList.add('active');
+      // Handle initial load and back/forward navigation
+      window.addEventListener("DOMContentLoaded", () => {
+        const hash = window.location.hash.slice(1) || "home";
+        showTab(hash);
+      });
 
-        // Handle initial load and back/forward navigation
-        window.addEventListener('DOMContentLoaded', () => {
-            const hash = window.location.hash.slice(1) || 'home';
-            showTab(hash);
-        });
-
-        window.addEventListener('popstate', () => {
-            const hash = window.location.hash.slice(1) || 'home';
-            showTab(hash);
-        });
+      window.addEventListener("popstate", () => {
+        const hash = window.location.hash.slice(1) || "home";
+        showTab(hash);
+      });
     </script>
-</body>
+  </body>
 </html>
