@@ -3,9 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://pranavputtagunta.github.io",
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
+    "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview"
   },
