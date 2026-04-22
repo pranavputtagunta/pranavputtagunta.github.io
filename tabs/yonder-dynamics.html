@@ -1,0 +1,243 @@
+<div class="max-w-4xl mx-auto">
+  <button
+    onclick="showTab('experiences')"
+    class="text-secondary hover:underline mb-6 flex items-center"
+  >
+    <i class="fas fa-arrow-left mr-2"></i> Back to Experiences
+  </button>
+
+  <h2 class="text-4xl font-bold text-heading mb-4">
+    Yonder Dynamics - Software Projects
+  </h2>
+  <p class="text-xl text-secondary mb-8">
+    Autonomous Systems Engineering & Optimization
+  </p>
+
+  <div
+    class="bg-white/5 rounded-lg p-6 mb-8 border-l-4 border-secondary"
+  >
+    <h3 class="text-2xl font-bold text-heading mb-3">Overview</h3>
+    <p class="text-gray-300">
+      As the Software Lead at Yonder Dynamics, I manage the migration
+      and development of our autonomous systems stack. My core
+      contributions range from building real-time kinematics (RTK)
+      integrations, overhauling navigation architectures, optimizing
+      point cloud generation, and pioneering autonomous inverse
+      kinematics logic for complex manipulation tasks.
+    </p>
+  </div>
+
+  <div class="space-y-10">
+    <!-- Project 1: RTK -->
+    <section
+      class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors border border-white/10"
+    >
+      <div class="flex items-center mb-4">
+        <i
+          class="fas fa-satellite-dish text-2xl text-secondary mr-4"
+        ></i>
+        <h3 class="text-2xl font-bold text-heading">
+          1. RTK GPS Integration & Navigation Overhaul
+        </h3>
+      </div>
+      <p class="text-sm text-gray-300 mb-4">
+        <strong class="text-white">Objective:</strong> Phase out the
+        outdated Pixhawk-based navigation system in favor of a modern
+        dual-antenna RTK setup for our autonomous rover to handle
+        complex trajectory tracking.
+      </p>
+      <ul class="list-disc pl-5 mb-4 space-y-2 text-sm text-gray-300">
+        <li>
+          Implemented dual-antenna RTK GPS hardware pipelines by writing
+          custom Python firmware that constantly pushes RTCM corrections
+          from the base station.
+        </li>
+        <li>
+          Migrated away from Pixhawk's internal EKF (Extended Kalman
+          Filter) by developing YAML configurations to launch and manage
+          a custom ROS EKF node.
+        </li>
+        <li>
+          Successfully achieved sensor fusion by combining IMU data from
+          an onboard OAK-D camera with absolute heading and positional
+          data from the new RTK modules.
+        </li>
+      </ul>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <span class="px-2 py-1 bg-secondary/20 text-secondary rounded"
+          >ROS</span
+        >
+        <span class="px-2 py-1 bg-secondary/20 text-secondary rounded"
+          >Python</span
+        >
+        <span class="px-2 py-1 bg-secondary/20 text-secondary rounded"
+          >EKF</span
+        >
+        <span class="px-2 py-1 bg-secondary/20 text-secondary rounded"
+          >RTCM</span
+        >
+      </div>
+    </section>
+
+    <!-- Project 2 -->
+    <section
+      class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors border border-white/10"
+    >
+      <div class="flex items-center mb-4">
+        <i class="fas fa-keyboard text-2xl text-secondary mr-4"></i>
+        <h3 class="text-2xl font-bold text-heading">
+          2. Autonomous Keyboard Typing via Inverse Kinematics
+        </h3>
+      </div>
+      <p class="text-sm text-gray-300 mb-4">
+        <strong class="text-white">Objective:</strong> Create an
+        autonomous subsystem capable of executing precise keystrokes
+        natively without external telemetry networks.
+      </p>
+      <ul class="list-disc pl-5 mb-4 space-y-2 text-sm text-gray-300">
+        <li>
+          Placed 4 ArUco markers surrounding a generic keyboard boundary
+          for frame reference.
+        </li>
+        <li>
+          Utilized the intrinsic matrix of a hand-mounted camera to
+          establish precise 3D positioning mapping between the
+          end-effector arm and the keyboard's spatial plane.
+        </li>
+        <li>
+          Developed complex Inverse Kinematics (IK) algorithms that
+          dynamically calculates joint angles to move the end-effector
+          arm optimally to the position of any requested key.
+        </li>
+      </ul>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <span class="px-2 py-1 bg-secondary/20 text-secondary rounded"
+          >OpenCV</span
+        >
+        <span class="px-2 py-1 bg-secondary/20 text-secondary rounded"
+          >ArUco</span
+        >
+        <span class="px-2 py-1 bg-secondary/20 text-secondary rounded"
+          >Inverse Kinematics</span
+        >
+        <span class="px-2 py-1 bg-secondary/20 text-secondary rounded"
+          >Robotics</span
+        >
+      </div>
+    </section>
+
+    <!-- Project 3 -->
+    <section
+      class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors border border-white/10"
+    >
+      <div class="flex items-center mb-4">
+        <i class="fas fa-code-branch text-2xl text-secondary mr-4"></i>
+        <h3 class="text-2xl font-bold text-heading">
+          3. Webots Scalable Simulation Environment
+        </h3>
+      </div>
+      <p class="text-sm text-gray-300 mb-4">
+        <strong class="text-white">Objective:</strong> Eliminate
+        hardware-testing bottlenecks by generating a high-fidelity
+        digital twin of the rover physics.
+      </p>
+      <ul class="list-disc pl-5 mb-4 space-y-2 text-sm text-gray-300">
+        <li>
+          Built a comprehensive Webots simulation environment derived
+          from custom URDF (Unified Robot Description Format) models of
+          the mechanical subteam's designs.
+        </li>
+        <li>
+          Configured a continuous ROSbridge infrastructure that networks
+          simulated sensory inputs/outputs (actuators, cameras) over to
+          the actual autonomous ROS logic running inside a Docker
+          container.
+        </li>
+        <li>
+          Enabled 100% asynchronous and parallel software development
+          workflow safely independent of physical hardware build
+          timelines.
+        </li>
+      </ul>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <span class="px-2 py-1 bg-secondary/20 text-secondary rounded"
+          >Webots</span
+        >
+        <span class="px-2 py-1 bg-secondary/20 text-secondary rounded"
+          >URDF</span
+        >
+        <span class="px-2 py-1 bg-secondary/20 text-secondary rounded"
+          >ROSbridge</span
+        >
+        <span class="px-2 py-1 bg-secondary/20 text-secondary rounded"
+          >Docker</span
+        >
+      </div>
+    </section>
+
+    <!-- Project 4 -->
+    <section
+      class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors border border-white/10"
+    >
+      <div class="flex items-center mb-4">
+        <i class="fas fa-eye text-2xl text-secondary mr-4"></i>
+        <h3 class="text-2xl font-bold text-heading">
+          4. Advanced Obstacle Avoidance Pipelines
+        </h3>
+      </div>
+      <ul class="list-disc pl-5 mb-4 space-y-2 text-sm text-gray-300">
+        <li>
+          Streamlined point cloud processing generated by the OAK-D
+          stereo camera block to more effectively cull noise and
+          identify steep obstacles.
+        </li>
+        <li>
+          Constructed reliable 2D/3D dynamic occupancy grids mapping the
+          navigable environment based off stereo depth.
+        </li>
+        <li>
+          Refined the fundamental grid navigation code using the
+          <strong>Theta* (Theta-star) algorithm</strong>, significantly
+          enabling smoother, faster any-angle path avoidance.
+        </li>
+        <li>
+          Engineered loss-of-signal fail-safes (rover recall) utilizing
+          a software heartbeat signal logic over the telemetry network.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Project 5 -->
+    <section
+      class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-colors border border-white/10"
+    >
+      <div class="flex items-center mb-4">
+        <i class="fas fa-microchip text-2xl text-secondary mr-4"></i>
+        <h3 class="text-2xl font-bold text-heading">
+          5. Edge AI Migration (YOLO)
+        </h3>
+      </div>
+      <p class="text-sm text-gray-300 mb-4">
+        <strong class="text-white">Objective:</strong> Decrease power
+        consumption and decouple vision processing by migrating
+        detection software across architectures.
+      </p>
+      <ul class="list-disc pl-5 space-y-2 text-sm text-gray-300">
+        <li>
+          Successfully oversaw the migration of the core object
+          detection YOLO stack from a central Nvidia Jetson dependency
+          block.
+        </li>
+        <li>
+          Deployed natively onto the dedicated onboard NPU capabilities
+          of an OrangePi.
+        </li>
+        <li>
+          Integrated RKNN YOLO parsing directly against the camera
+          pipeline, heavily freeing up compute resources for the
+          navigation subsystems.
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>
