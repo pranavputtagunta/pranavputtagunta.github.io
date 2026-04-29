@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
+import HologramBackground from './components/HologramBackground'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
 import ARGlasses from './pages/ARGlasses'
@@ -46,8 +47,20 @@ function App() {
 
   return (
     <div className="min-h-screen bg-primary text-text">
+      {/* Mounted here (not inside Home) so its position:fixed escapes the
+          centered <main> column — that wrapper has a CSS transform from
+          animate-fade-in which would otherwise act as the containing block
+          and clip the canvas. Conditional render keeps it home-only. */}
+      {activeTab === 'home' && <HologramBackground />}
       <Navbar activeTab={activeTab} navigate={navigate} />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+      {/* On home, main is non-interactive so drag events fall through to the
+          fixed canvas behind it; the Home page re-enables pointer events on
+          its actual interactive elements (links, button). */}
+      <main
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 ${
+          activeTab === 'home' ? 'pointer-events-none' : ''
+        }`}
+      >
         <div key={activeTab} className="animate-fade-in">
           {renderPage()}
         </div>
