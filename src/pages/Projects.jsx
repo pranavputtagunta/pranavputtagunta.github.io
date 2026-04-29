@@ -81,6 +81,21 @@ const projects = [
     ],
   },
   {
+    title: 'Spectal/SpectAI',
+    badge: 'LA Hacks 2026',
+    subtitle: 'Realtime AI Coaching Overlay for Competitive Gaming',
+    bullets: [
+      'Built a transparent in-game coaching overlay combining OpenCV screen capture and live Valorant API data to feed real-time context into Gemini for instant, actionable advice.',
+      'Integrated push-to-talk voice coaching with speech-to-text and ElevenLabs synthesis, enabling mid-match Q&A without breaking gameplay focus.',
+      'Designed a post-match performance dashboard that builds a skill radar from match history and generates custom 3D aim training drills targeting the player\'s specific weak points.',
+      'Optimized the pipeline with multithreading to achieve near-zero latency between game events and AI voice responses, and built auto-reconnect logic to silently recover dropped AI connections during long sessions.',
+    ],
+    techs: ['Python', 'OpenCV', 'Gemini', 'PyQt6', 'ElevenLabs', 'React', 'TypeScript', 'Vite'],
+    links: [
+      { href: 'https://devpost.com/software/spectal-spectai', label: 'Devpost' },
+    ],
+  },
+  {
     title: 'PrepNotch',
     badge: 'In Development',
     subtitle: 'LLM-Powered Personalized Tutoring Platform',
