@@ -58,6 +58,22 @@ export default function HologramBackground() {
           rotateSpeed={0.6}
         />
       </Canvas>
+
+      {/*
+        Vignette overlay: darkens the center where the page text sits so it
+        reads cleanly against the wireframe, while staying fully transparent
+        at the viewport edges so the model still feels screen-encompassing.
+        pointer-events-none so OrbitControls keeps receiving drag events
+        through this layer. Tweak the inner alpha (0.6) for more/less
+        darkening, or the stop position (55%) to widen/tighten the dark area.
+      */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse at center, rgba(10,25,47,0.6) 0%, rgba(10,25,47,0.35) 30%, rgba(10,25,47,0) 55%)',
+        }}
+      />
     </div>
   )
 }

@@ -103,7 +103,7 @@ function makeSketchMaterial() {
         // Trailing fade just behind the "pen", multiplied by a constant alpha
         // so the wireframe sits behind the text without competing for attention.
         float alpha = 1.0 - smoothstep(uProgress - uFade, uProgress, vT);
-        gl_FragColor = vec4(uColor, alpha * 0.7);
+        gl_FragColor = vec4(uColor, alpha * 0.5);
       }
     `,
     transparent: true,
