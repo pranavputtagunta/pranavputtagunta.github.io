@@ -33,7 +33,31 @@ export default function Experiences({ navigate }) {
         </div>
 
         <div className="mb-4">
-          <h4 className="text-base font-bold text-heading mb-2">System Acceptance Review</h4>
+          <h4 className="text-base font-bold text-heading mb-2">System Acceptance Review 2026</h4>
+          <p className="mb-3 text-sm text-text/70">
+            Our latest System Acceptance Review, showcasing the rover's updated autonomous stack including the new stereo-vision obstacle avoidance pipeline, ROS 2 state machine, and wheel-based local odometry.
+          </p>
+          <iframe
+            width="640"
+            height="360"
+            src="https://www.youtube-nocookie.com/embed/ofyGU1TOSJY?rel=0"
+            title="Yonder Dynamics SAR 2026"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+            className="rounded-lg w-full max-w-[640px] aspect-video"
+          />
+          <p className="mt-2 text-sm text-text/50">
+            If the video fails to load due to embed restrictions,{' '}
+            <a href="https://www.youtube.com/watch?v=ofyGU1TOSJY" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">
+              open it on YouTube
+            </a>.
+          </p>
+        </div>
+
+        <div className="mb-4">
+          <h4 className="text-base font-bold text-heading mb-2">System Acceptance Review 2025</h4>
           <p className="mb-3 text-sm text-text/70">
             Watch a demonstration of the rover's capabilities, including waypoint navigation, obstacle avoidance, and return-to-base functionality.
           </p>
