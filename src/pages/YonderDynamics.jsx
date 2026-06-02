@@ -72,8 +72,19 @@ const projects = [
     techs: ['Webots', 'URDF', 'ROSbridge', 'Docker'],
   },
   {
+    icon: '📊',
+    title: '7. Foxglove Visualization & Telemetry',
+    objective: 'Give the team real-time insight into the autonomous stack by standing up live visualization for both the simulated and physical rover.',
+    bullets: [
+      'Ran Foxglove bridges for both the Webots simulation and the physical rover to stream live ROS data for debugging and demos.',
+      'Developed visualizations for object detection, costmaps, and path planning to make the autonomy pipeline observable in real time.',
+      'Built visualizations of GPS drift and EKF smoothing to diagnose localization quality and validate the wheel-odometry fusion.',
+    ],
+    techs: ['Foxglove', 'ROS 2', 'Visualization', 'Telemetry'],
+  },
+  {
     icon: '🧠',
-    title: '7. Edge AI Migration (YOLO)',
+    title: '8. Edge AI Migration (YOLO)',
     objective: 'Decrease power consumption and decouple vision processing by migrating detection software across architectures.',
     bullets: [
       'Successfully oversaw the migration of the core object detection YOLO stack from a central Nvidia Jetson dependency block.',
