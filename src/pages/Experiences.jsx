@@ -11,12 +11,12 @@ export default function Experiences({ navigate }) {
         dates="Oct 2024 - Present"
         role="Software Lead"
         bullets={[
-          'Integrated RTK GPS with Pixhawk, boosting accuracy from 10m to 10cm and eliminating 30% of navigation failures.',
-          'Designed physics-based simulations using custom URDF models for asynchronous testing of autonomous logic.',
-          'Engineered robust traversal routines and a loss-of-signal fail-safes, reducing failures by 30% during URC competitions.',
-          'Managed agile sprint planning in Notion, improving cross-functional team coordination for the autonomous subsystem.',
+          'Developed a stereo-vision obstacle avoidance pipeline: depth → point cloud → rolling 30m × 30m confidence grid, with Theta* planning and a pure pursuit controller.',
+          'Rewrote the ROS 1 autonomous state machine in modular ROS 2 (and began a C++ port) for cleaner state transitions and better concurrency across navigation, detection, and avoidance.',
+          'Built wheel-based local odometry with a TF2 base_link/odom/map transform tree, and migrated RTK EKF fusion from the inaccurate OAK-D IMU to wheel odometry.',
+          'Designed a Webots simulation with custom localization and depth-image implementations, saving hundreds of hours of field testing and enabling parallel algorithm development.',
         ]}
-        techs={['Python', 'ROS', 'RTK GPS', 'Vision', 'SolidWorks']}
+        techs={['Python', 'C++', 'ROS 2', 'RTK GPS', 'Theta*', 'TF2', 'Vision']}
         onClick={() => navigate('yonder-dynamics')}
       >
         <div className="mb-4">
