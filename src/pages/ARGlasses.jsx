@@ -158,10 +158,84 @@ export default function ARGlasses({ navigate }) {
         </div>
       </section>
 
+      {/* Software Architecture Deep Dive */}
+      <section className="mb-12">
+        <h3 className="text-2xl font-bold text-heading border-b border-white/10 pb-3 mb-6">
+          <span className="font-mono text-secondary mr-2">05.</span>Software Architecture Deep Dive
+        </h3>
+        <p className="mb-6 text-slate">
+          The desktop pipeline runs six daemon threads connected by bounded queues, and every AI-dependent stage — text generation, semantic retrieval, and voice activity detection — is built as a swappable provider chain instead of a single hardcoded API call. The goal: a demo that degrades gracefully when a network call is slow, a quota runs out, or there's no internet at all, rather than freezing or crashing.
+        </p>
+
+        <div className="mb-8">
+          <h4 className="text-lg font-bold text-heading mb-3">Local vs. Remote LLMs: Dual Fallback Chains</h4>
+          <p className="text-sm text-slate mb-4">
+            Two independent backend chains run in parallel roles — one phrases the memory prompt, one scores retrieval candidates — each trying its providers in order until one answers. A per-backend circuit breaker skips a reliably-failing provider entirely rather than paying its full timeout on every call, and permanent errors (a quota exhausted, a bad argument) open the breaker immediately instead of waiting to fail the same way again.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              { title: 'Remote — Gemini', badge: 'Best quality', desc: "gemini-3.6-flash phrases the prompt; gemini-embedding-001 scores retrieval. Fastest and highest quality when healthy, but quota-limited and network-dependent — a single failure opens its circuit breaker for a cooldown period rather than retrying blindly." },
+              { title: 'Local — Ollama', badge: 'Steady fallback', desc: "gemma4:e2b for generation, embeddinggemma:300m for retrieval, both served from a local Ollama instance kept warm in memory. No internet dependency and a steady ~2.5s once loaded — the difference between a fallback tier that works and one that's theoretical." },
+              { title: 'Offline — TF-IDF', badge: 'Always available', desc: "A dependency-free lexical ranker as the retrieval floor of last resort — no model, no network, no warm-up cost. Weaker than embeddings (it matches “hackathon” to “hackathon” but not “competition”), but retrieval can never go fully blind." },
+            ].map((item) => (
+              <div key={item.title} className="glass rounded-xl p-5 border-l-2 border-secondary">
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <h5 className="font-bold text-heading text-sm">{item.title}</h5>
+                  <span className="px-2 py-0.5 text-[10px] font-mono text-secondary bg-secondary/10 rounded-full border border-secondary/20 whitespace-nowrap">{item.badge}</span>
+                </div>
+                <p className="text-xs text-text/70">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-text/60 mt-4">
+            One subtlety that matters here: cosine similarity scores aren't comparable across embedding models — Gemini's cluster around 0.55-0.71 on real memory data, while the local model spreads 0.13-0.47. A single relevance threshold can't be right for both, so each provider carries its own measured similarity floor, and a retrieval never mixes vectors from two different models mid-query.
+          </p>
+        </div>
+
+        <div className="mb-8">
+          <h4 className="text-lg font-bold text-heading mb-3">Memory Retrieval (RAG) Pipeline</h4>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              { title: 'Always-Include vs. Ranked Pool', desc: "A person's name, relationship, last interaction, and any fact flagged important always reach the LLM untouched. Everything else — ordinary facts, past conversations, related people — competes for a handful of ranked slots, so an unrelated family member never surfaces unless the live conversation is actually about them." },
+              { title: 'Semantic Retrieval with Provenance', desc: "Candidates are scored by embedding cosine similarity against the live conversation, and results are tagged with which backend answered. A prompt from the primary model caches for 90 seconds; a degraded fallback answer caches for only 3 — so one slow API call can't pin a worse answer to the display for a full cooldown cycle." },
+              { title: 'Self-Updating Memory', desc: "A dedicated writer thread listens for transcripts attributed to whoever is currently recognized on camera and appends them straight into that person's memory file — so today's conversation becomes tomorrow's retrieval context, with no manual editing." },
+              { title: 'Graceful Degradation, End to End', desc: "Every layer has a next-best option: Gemini falls back to a local model, semantic search falls back to lexical TF-IDF, and a real LLM answer falls back to a filled-in template — so the AR display never goes blank, it just gets simpler." },
+            ].map((item) => (
+              <div key={item.title} className="glass rounded-xl p-4 border-l-2 border-secondary">
+                <h5 className="font-bold text-heading text-sm mb-1">{item.title}</h5>
+                <p className="text-xs text-text/70">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-lg font-bold text-heading mb-3">Voice Pipeline: Three-Gate Noise Filtering</h4>
+          <p className="text-sm text-slate mb-4">
+            A single energy threshold can't tell room tone from speech — early testing on a live session produced fluent-sounding nonsense ("regular oven", "I can't see any momentum") transcribed from an empty room. Every chunk is now checked three times, cheapest gate first, since it becomes both the retrieval query and a permanent memory entry:
+          </p>
+          <div className="space-y-3">
+            {[
+              { step: '1', title: 'RMS Energy', desc: "A near-free pre-filter tuned just above the microphone's noise floor — its only job is skipping an expensive VAD call on digital silence." },
+              { step: '2', title: 'Silero VAD', desc: 'A real neural speech detector (~5ms) that catches room tone and ambient noise a simple energy threshold cannot — the gate that actually separates speech from silence.' },
+              { step: '3', title: "Whisper's Own Confidence", desc: "A final backstop using Whisper's own no-speech probability and log-probability scores, catching speech-like noise that made it all the way to the decoder." },
+            ].map((item) => (
+              <div key={item.step} className="flex items-start gap-4 glass rounded-xl p-4">
+                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-secondary/10 border border-secondary/20 text-secondary font-mono text-sm flex items-center justify-center">{item.step}</span>
+                <div>
+                  <h5 className="font-bold text-heading text-sm">{item.title}</h5>
+                  <p className="text-xs text-text/70">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Progress */}
       <section className="glass rounded-2xl p-6 border border-secondary/20">
         <h3 className="text-2xl font-bold text-heading mb-5">
-          <span className="font-mono text-secondary mr-2">05.</span>Current Progress & Next Steps
+          <span className="font-mono text-secondary mr-2">06.</span>Current Progress & Next Steps
         </h3>
         <div className="space-y-4">
           <div className="flex items-start gap-3 text-slate">
