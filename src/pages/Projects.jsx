@@ -8,10 +8,11 @@ const projects = [
     subtitle: "Alzheimer's AR Memory Assistant",
     bullets: [
       'Engineered an ultra-low-cost, lightweight AR headset delivering facial recognition and passive memory prompts',
+      'Built a full-stack AI pipeline (Gemini RAG, Whisper voice AI, self-improving face recognition) validated end-to-end on desktop and ported to an iOS app + FastAPI worker',
       'Optimized for elderly accessibility with high-contrast text streaming and ergonomic counterbalance',
       'Tested 6 different optical architectures prioritizing infinite focus and maximum eyebox',
     ],
-    techs: ['C++', 'CAD', 'Optics', 'ESP32'],
+    techs: ['Python', 'React Native', 'FastAPI', 'C++', 'ESP32', 'Gemini'],
     navigateTo: 'ar-glasses',
   },
   {

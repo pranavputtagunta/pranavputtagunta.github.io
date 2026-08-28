@@ -134,21 +134,21 @@ export default function ARGlasses({ navigate }) {
       {/* Software Stack */}
       <section className="mb-12">
         <h3 className="text-2xl font-bold text-heading border-b border-white/10 pb-3 mb-6">
-          <span className="font-mono text-secondary mr-2">04.</span>Software Stack & AI Pipeline (To be implemented)
+          <span className="font-mono text-secondary mr-2">04.</span>Software Stack & AI Pipeline
         </h3>
         <div className="glass rounded-xl p-6 mb-6">
-          <h4 className="text-lg font-bold text-secondary mb-3">Tethered Edge Computing</h4>
+          <h4 className="text-lg font-bold text-secondary mb-3">Distributed Compute Architecture</h4>
           <p className="text-sm text-slate">
-            To keep the glasses ultra-lightweight and battery-free, all heavy logic runs on a tethered iPhone via a dedicated React Native application. The iPhone transmits the display output directly through a USB-C connection to the ESP32 on the glasses.
+            To keep the glasses ultra-lightweight and battery-free, all AI inference runs off-device. A React Native iPhone app captures the camera and microphone and streams them over Wi-Fi to a "Vision Worker" — a FastAPI service running the same Python pipeline validated on a laptop. The phone then pushes the resulting display payload to the ESP32S3 over the glasses' own Wi-Fi access point, with USB-C reserved purely for power.
           </p>
         </div>
         <h4 className="text-lg font-bold text-heading mb-4">Core Model Features</h4>
         <div className="grid md:grid-cols-2 gap-4">
           {[
-            { title: 'RAG & LLM Integration', desc: 'Uses context-aware retrieval and Language Models to process conversational history and generate passive memory prompts.' },
-            { title: 'Facial Detection Models', desc: "Continuously scans the incoming feed to identify faces and cross-reference them with the user's stored loved ones." },
-            { title: 'Voice AI', desc: "Listens and transcribes real-time audio through the ESP32S3's microphone, syncing auditory cues with visuals." },
-            { title: 'OpenCV Annotations', desc: 'Applies high-contrast bounding boxes and textual labels onto the video feed, optimized for readability on the 1.8-inch display.' },
+            { title: 'RAG & LLM Integration', desc: "Google Gemini generates warm, natural-language memory prompts from retrieved facts, using semantic embedding-based retrieval so only what's contextually relevant reaches the model — with an offline template fallback so the demo never has a hard dependency on network access." },
+            { title: 'Self-Improving Face Recognition', desc: 'Confirms new detections with a quick yes/no prompt during onboarding and folds accepted photos directly into the live recognition model, improving accuracy without retraining or a restart.' },
+            { title: 'Voice AI', desc: "Local Whisper transcription with a voice-activity gate to avoid hallucinating text on silence, syncing live conversation context with the visual memory prompts." },
+            { title: 'Cross-Platform Display Pipeline', desc: 'The same AR display renderer runs identically in the desktop simulation, the iPhone app, and — via a WebSocket bridge — the physical ESP32S3 SPI display, so what you see in testing is exactly what ships.' },
           ].map((item) => (
             <div key={item.title} className="glass rounded-xl p-4 border-l-2 border-secondary">
               <h5 className="font-bold text-heading text-sm mb-1">{item.title}</h5>
@@ -166,11 +166,15 @@ export default function ARGlasses({ navigate }) {
         <div className="space-y-4">
           <div className="flex items-start gap-3 text-slate">
             <span className="text-green-400 text-lg mt-0.5">&#10003;</span>
-            <p><strong className="text-heading">Phase 1 (Complete):</strong> Optical math verified, hardware collisions solved, and CAD models locked in for the 60mm focal length housing. Bill of Materials sourced.</p>
+            <p><strong className="text-heading">Phase 1 — Desktop AI Pipeline (Complete):</strong> Real-time face recognition, Gemini-powered RAG memory prompts, and Whisper voice transcription all run together end-to-end on a laptop, rendering to a simulated AR display. Recognition also self-improves live through a confirm-and-learn calibration loop.</p>
+          </div>
+          <div className="flex items-start gap-3 text-slate">
+            <span className="text-green-400 text-lg mt-0.5">&#10003;</span>
+            <p><strong className="text-heading">Phase 2 — iOS App + Vision Worker (Complete):</strong> Ported the pipeline to a React Native/Expo app that captures the phone's camera and mic and streams to a FastAPI "Vision Worker" reusing the Phase 1 code, so the same AI runs with zero on-device inference.</p>
           </div>
           <div className="flex items-start gap-3 text-slate">
             <span className="text-secondary text-lg mt-0.5 animate-pulse">&#9679;</span>
-            <p><strong className="text-heading">Phase 2 (In Progress):</strong> Shifting focus to firmware. Developing a C++ WebSocket server on the ESP32 to receive and render live text streams over Wi-Fi/Bluetooth from a paired iOS device.</p>
+            <p><strong className="text-heading">Phase 3 — Glasses Firmware (Implemented; hardware bring-up in progress):</strong> ESP32S3 firmware hosts a WebSocket server that renders the phone's live display payload onto the physical SPI TFT, with a laptop emulator for testing the bridge without hardware in hand. The optical/mechanical housing is CAD-complete through V6; wiring and flashing onto real hardware is the remaining step to close the loop end-to-end.</p>
           </div>
         </div>
       </section>
