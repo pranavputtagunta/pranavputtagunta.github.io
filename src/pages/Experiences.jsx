@@ -7,10 +7,25 @@ export default function Experiences({ navigate }) {
       <SectionHeading number="03">Experiences</SectionHeading>
 
       <ExperienceCard
+        title="Nokia"
+        dates="Jun 2026 - Sep 2026"
+        role="Optical Networking Automation Co-op"
+        bullets={[
+          'Developed a bandwidth calendaring system that lets customers book a network line between two locations over set times and activates it automatically.',
+          "Refactored an unscalable SQL-based capacity availability checker into a capacity-ledger system integrated into Nokia's existing routing engine.",
+          'Designed an ML/AI integration layer for capacity exhaustion detection, demand forecasting, and network rebalancing, built around CP-SAT, XGBoost, and CUSUM.',
+          'Designed an AI orchestration layer to automate risk analysis and manual approval workflows.',
+          'Wrote Cursor skills that employees use to automate workflows (deploying JARs to testbenches, exploring the test database, deploying the frontend by detecting changed files), cutting workflow time by up to 50%.',
+        ]}
+        techs={['Java (Spring)', 'React', 'Oracle SQL', 'Docker', 'RedHat', 'Cursor']}
+      />
+
+      <ExperienceCard
         title="Yonder Dynamics"
         dates="Oct 2024 - Present"
         role="Software Lead"
         bullets={[
+          'Built a return-to-base fail-safe triggered by ROS heartbeat loss, reducing rover mission failures by 30% in testing.',
           'Developed a stereo-vision obstacle avoidance pipeline: depth → point cloud → rolling 30m × 30m confidence grid, with Theta* planning and a pure pursuit controller.',
           'Rewrote the ROS 1 autonomous state machine in modular ROS 2 (and began a C++ port) for cleaner state transitions and better concurrency across navigation, detection, and avoidance.',
           'Built wheel-based local odometry with a TF2 base_link/odom/map transform tree, and migrated RTK EKF fusion from the inaccurate OAK-D IMU to wheel odometry.',
@@ -92,7 +107,7 @@ export default function Experiences({ navigate }) {
 
       <ExperienceCard
         title="Pragma Edge (IBM Partner Company)"
-        dates="Oct 2025 - Present"
+        dates="Oct 2025 - May 2026"
         role="AI Engineering Intern"
         bullets={[
           'Architected REST APIs for asset management, facilitating communication between IBM Maximo and external services.',
@@ -109,10 +124,10 @@ export default function Experiences({ navigate }) {
         dates="Mar 2025 - Sep 2025"
         role="Research Assistant"
         bullets={[
-          'Built motion planning algorithms achieving 200% faster runtime, 10% gauze savings, and 100% wound coverage.',
-          'Reconstructed 3D meshes from RGB-D scans with Open3D + SDFs, reaching 80% accuracy for field medical robotics.',
-          'Implemented MCTS + heuristics, cutting compute by 30% and enabling near real-time robotic gauze tape application.',
-          'Integrated algorithms into humanoid prototypes, collaborating with researchers on clinical feasibility testing.',
+          'Built a 1D tape endpoint planner operating on a 2D cross-section of the wound surface.',
+          'Developed a minimum-bounding-box heuristic for gauze placement.',
+          'Experimented with MCTS for planning; it was explored but not implemented.',
+          'Prototyped mesh reconstruction from depth camera and FaceID data.',
         ]}
         techs={['Python', 'Point Clouds', 'Path Planning']}
         links={[{ href: 'https://ucsdarclab.com/', label: 'View our work' }]}
